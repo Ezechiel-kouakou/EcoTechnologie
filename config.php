@@ -1,8 +1,8 @@
 <?php
-$host= 'localhost';
-$username = 'root';
+$host= '#';
+$username = '#';
 $pwd = '';
-$dbname = 'ecotech_db';
+$dbname = '#';
 $charset  = 'utf8mb4';
 
 $dsn= "mysql:host=$host;dbname=$dbname;charset=$charset";
