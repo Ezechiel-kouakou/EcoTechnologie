@@ -1,0 +1,242 @@
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
+
+
+:root{
+  --green: #0b3b2e;
+  --green2: #0f5b45;
+  --gold: #ffae00;
+  --bg: #f4f6f8;
+  --text: #111;
+}
+
+body{
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+
+body.bg-image{
+  background-image: url("/ecotechbankpictures/ecotechbankBackground_img.jpg"); /* <-- change le nom du fichier */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+body.bg-image::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  z-index: -1;
+}
+
+body > h1{
+  margin: 0;
+  padding: 35px 40px;
+  background: var(--green);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+body > button{
+  margin: 0;
+  border: 0;
+  cursor: pointer;
+  background: var(--gold);
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+
+#authButtons{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
+#authButtons button,
+#authButtons a{
+  border: 1px solid rgba(255,255,255,.3);
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  padding: 9px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+body:has(#authButtons){
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "title panier auth"
+    "content content content";
+  gap: 14px;
+  padding: 14px;
+}
+
+
+body:has(#authButtons)::after{
+  content:"";
+  grid-column: 1 / -1;
+  grid-row: 1;
+  border-radius: 14px;
+  background: var(--green);
+  z-index: 0;
+}
+
+body:has(#authButtons) > h1{ grid-area: title; z-index: 1; background: transparent; padding: 10px 10px; }
+body:has(#authButtons) > button{ grid-area: panier; z-index: 1; align-self: center; }
+body:has(#authButtons) > #authButtons{ grid-area: auth; z-index: 1; justify-content: flex-end; }
+
+
+#productList{
+  grid-area: content;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+}
+
+
+#loginForm,
+#FormulaireInscription{
+  width: min(420px, 92vw);
+  margin: 70px auto;
+  background: rgba(255,255,255,.95);
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+
+  display: flex;
+  flex-direction: column; 
+  gap: 12px;
+}
+
+#loginMessage,
+#authMessage{
+  width: min(420px, 92vw);
+  margin: 25px auto -50px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+input{
+  padding: 12px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+input:focus{
+  border-color: var(--green2);
+}
+
+
+form button{
+  padding: 12px 12px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+form button[type="submit"]{
+  background: var(--green2);
+  color: #fff;
+}
+
+
+form button:not([type="submit"]){
+  background: #e9ecef;
+}
+
+
+#panierContent{
+  width: min(980px, 95vw);
+  margin: 30px auto;
+  background: rgba(255,255,255,.95);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+#panierContent header h1{
+  margin: 0 0 14px;
+  font-size: 20px;
+  color: var(--green);
+}
+
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+th, td{
+  border-bottom: 1px solid #eee;
+  padding: 12px;
+  text-align: left;
+}
+
+th{
+  background: #f2f4f6;
+}
+
+.total-section{
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+#checkoutBtn{
+  background: var(--gold);
+  border: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+#productDetails{
+  width: min(700px, 92vw);
+  margin: 40px auto;
+  background: rgba(255,255,255,.95);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+#productDetails h1{
+  margin: 0 0 10px;
+  color: var(--green);
+}
+
+
+@media (max-width: 720px){
+  body:has(#authButtons){
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "panier"
+      "auth"
+      "content";
+  }
+}
