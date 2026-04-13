@@ -1,0 +1,429 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                      url(./ecotechshop_pictures/ecotechshop_background_connect.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Le fond ne bouge pas au scroll */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Aligne verticalement Header -> Form -> Footer */
+    min-height: 100vh;
+}
+.connect-form{
+    background:transparent;
+    padding: 50px;
+    border-radius: 8px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    color: #fff;
+    min-height: 300px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);;
+}
+#loginForm, #FormulaireInscription {
+    width: 100%;
+    max-width: 500px; /* Plus adapté que 700px pour un login */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative; /* On enlève absolute */
+}
+.input-part input {
+    padding: 10px 10px 10px 45px;  
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #001554;
+    background: transparent;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    min-height: 30px;
+    width: 100%;
+}
+.connect-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: lighter;
+    margin-left: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.connect-form button {
+    padding: 10px;
+    border: none;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    width:60%;
+    border-radius: 4px;
+    background: #001554;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
+.btn-connect {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.btn-register{
+    display: flex;
+    justify-content: center;
+}
+.btn-register button {
+    background: transparent;
+    border-bottom: 2px solid #fff;
+    color:#001554;
+
+    padding: 10px;
+    font-size:18px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.input-part {
+    display: flex;
+    position: relative;
+    width: 90%;
+    flex-direction: row;
+    padding: 0px 20px 20px 45px; 
+    gap: 10px;
+}
+.input-part i {
+    position: absolute;
+    top: 35%;
+    left: 60px;          
+    transform: translateY(-50%);
+    color: rgba(255,255,255,0.7);
+    pointer-events: none;
+}
+#loginMessage {
+    color: #ff0202;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: lighter;
+     
+}
+   #global-loader {
+    position: fixed;
+    inset: 0;
+    display: none;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10000;
+}
+.main-content {
+    flex: 1; /* Prend tout l'espace disponible entre header et footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+/* 
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(125, 94, 94, 0.1);
+    border-top: 4px solid #018bf5;
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+} */
+/* Le fond noir semi-transparent */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.success-popup {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: popIn 0.5s ease-out;
+    max-width: 300px;
+}
+.success-icon {
+    font-size: 60px;
+    color: #27ae60;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.success-popup p {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.subtext {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #001554;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.auth-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #001554;
+    padding: 10px 40px;
+    background-color: white !important;
+    height: 70px; /* Hauteur fixe pour desktop */
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0 0 8px 8px; /* Arrondi léger en bas uniquement */
+}
+.logo img {
+    height: 60px; /* Taille pro */
+    width: auto;
+}
+.auth-ecotech h2 {
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: lighter;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.footer-auth-ecotech {
+    background-color: #001554 !important;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 15px 15px 0 0;
+    margin-top: auto; /* Sécurité pour rester en bas */
+}
+/* ----------------------------- zone reserver au responsive --------------------------------------------------- */
+
+/* --- RESPONSIVE AUTHENTIFICATION (PROPRE & CENTRÉ) --- */
+
+@media screen and (max-width: 1024px) {
+    .auth-header {
+        gap: 100px;
+        margin-bottom: 200px;
+    }
+    .footer-auth-ecotech {
+        width: 100%;
+        left: 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .auth-header {
+        padding: 10px 20px;
+        height: 60px;
+    }
+
+    .logo img {
+        height: 45px;
+    }
+
+    .auth-ecotech h2 {
+        font-size: 0.9rem !important;
+        font-weight: bold !important;
+        display: block !important;
+    }
+
+    .main-content {
+        align-items: flex-start; /* Évite que le clavier cache le bouton */
+        padding-top: 20px;
+    }
+
+    #loginForm {
+        width: 90% !important;
+    }
+
+    .input-part {
+        padding: 0 0 10px 0;
+    }
+
+    .input-part i {
+        left: 15px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .input-part input {
+        padding: 12px 12px 12px 45px !important;
+    }
+}
+
+    /* 1. Header Mobile */
+    
+@media screen and (max-width: 480px) {
+    .auth-header h2 {
+        display: none; /* Cache le texte pour laisser de la place au logo */
+    }
+    
+    .connect-form {
+        backdrop-filter: blur(10px); /* Plus léger pour les vieux tels */
+    }
+
+    .success-popup {
+        width: 80%;
+        padding: 20px;
+    }
+     .register {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+}
+
+#toast-container { 
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 10001; 
+}
+
+.toast { 
+    background: #001554; 
+    color: white; 
+    padding: 15px 25px; 
+    border-radius: 8px; 
+    margin-bottom: 10px; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Ajout d'une ombre pour le relief */
+    max-width: 350px; /* IMPORTANT : Empêche de prendre toute la largeur */
+    transform: translateX(120%); 
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animation plus fluide */
+}
+
+.toast.show { 
+    transform: translateX(0); 
+}
+
+.toast i {
+    font-size: 22px; /* Taille d'icône identique au thank.php */
+}
+
+.toast span {
+    font-size: 14px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Style Error spécifique (SHAKE) */
+.toast.error { 
+    background: #c0392b; 
+    animation: shake 0.5s both; 
+}
+
+@keyframes shake { 
+    0%, 100% { transform: translateX(0); } 
+    20%, 60% { transform: translateX(-10px); } 
+    40%, 80% { transform: translateX(10px); } 
+}
+
+ .register {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+.register p {
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+}
+
+.admin-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #001554;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto 0;
+    animation: rotate 1s linear infinite; 
+}
+
+.error-popup{
+     background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: popIn 0.5s ease-out;
+    max-width: 300px;
+}
+.ph-warning-circle{
+    font-size: 60px;
+    color: #e74c3c;
+    margin-bottom: 20px;
+    display: block;
+}
+.error-popup p {
+    color: #2c3e50;
+    font-size: 0.8rem;
+    font-weight:lighter;
+    margin: 10px 0;
+}
+.error-popup span {
+    color: #001554;
+    font-size: 0.9rem;
+}
+.form-message-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}

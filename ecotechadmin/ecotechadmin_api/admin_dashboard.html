@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoTech Admin - Dashboard Stratégique</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="admin-dashboard.css" />
+  </head>
+  <body>
+    <div id="global-loader"><div class="spinner"></div></div>
+
+    <div class="admin-container">
+      <aside class="sidebar">
+        <div class="logo">
+          <p>Mon espace administrateur</p>
+        </div>
+
+        <nav>
+          <ul>
+            <li onclick="afficherDashboard()">
+              <div class="menu-item">
+                <span><i class="ph ph-gauge"></i> Tableau de Bord</span>
+              </div>
+            </li>
+
+            <li class="has-submenu">
+              <div class="menu-item" onclick="toggleSubmenu(this)">
+                <span><i class="ph ph-package"></i> Stocks</span>
+                <i class="ph ph-caret-double-down"></i>
+              </div>
+              <ul class="submenu">
+                <li onclick="chargerDonnees('list_stock', 'pc')">
+                  Ordinateurs
+                </li>
+                <li onclick="chargerDonnees('list_stock', 'tel')">
+                  Téléphones
+                </li>
+                <li onclick="chargerDonnees('list_stock', 'tv')">
+                  Télévisions
+                </li>
+                <li onclick="chargerDonnees('list_stock', 'son')">Audio</li>
+                <li onclick="chargerDonnees('list_stock', 'periph')">
+                  Périphériques
+                </li>
+              </ul>
+            </li>
+
+            <li onclick="chargerDonnees('list_staff')">
+              <div class="menu-item">
+                <span
+                  ><i class="ph ph-identification-card"></i>
+                  Collaborateurs</span
+                >
+              </div>
+            </li>
+
+            <li onclick="chargerDonnees('list_users')">
+              <div class="menu-item">
+                <span><i class="ph ph-users"></i> Clients</span>
+              </div>
+            </li>
+
+            <li onclick="afficherMessaging()">
+              <div class="menu-item" style="color: #f39c12">
+                <span
+                  ><i class="ph ph-paper-plane-tilt"></i> Communication</span
+                >
+              </div>
+            </li>
+
+            <li onclick="documentationLink()">
+              <div class="menu-item">
+                <span
+                  ><i class="ph ph-identification-card"></i> Documentation</span
+                >
+              </div>
+            </li>
+
+            <li onclick="monitorerNgrok()">
+              <div class="menu-item">
+                <span><i class="ph ph-network"></i> Trafic Réseau</span>
+              </div>
+            </li>
+
+            <li onclick="logoutAdmin()" class="logout-item">
+              <div class="menu-item">
+                <span><i class="ph ph-sign-out"></i> Se déconnecter</span>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <div id="admin-sidebar-profile" class="admin-profile-footer"></div>
+      </aside>
+
+      <main class="main-content">
+        <header>
+          <div class="logo-societe">
+            <img
+              src="../../ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+              alt="Logo EcoTech"
+            />
+          </div>
+          <div class="header-titles">
+            <h1 id="view-title">Chargement...</h1>
+            <div id="action-bar"></div>
+          </div>
+        </header>
+
+        <div id="dashboard-view" style="display: none">
+          <div class="stats-grid">
+            <div class="kpi-card">
+              <div class="kpi-icon"><i class="ph ph-star"></i></div>
+              <div class="kpi-info">
+                <p class="kpi-label">Satisfaction</p>
+                <h3 class="kpi-value">
+                  <span id="live-avg">0.0</span><small>/5</small>
+                </h3>
+              </div>
+            </div>
+
+            <div class="kpi-card" style="border-bottom: 2px solid #2ecc71">
+              <div class="kpi-icon" style="color: #2ecc71">
+                <i class="ph ph-bank"></i>
+              </div>
+              <div class="kpi-info">
+                <p class="kpi-label">CA Interne</p>
+                <h3 class="kpi-value" id="live-ca">0 €</h3>
+                <span class="kpi-subtext"
+                  >Attente: <strong id="live-pending-ca">0 €</strong> (<span
+                    id="live-pending-nb"
+                    >0</span
+                  >)</span
+                >
+              </div>
+            </div>
+
+            <div class="kpi-card" style="border-bottom: 2px solid #3498db">
+              <div class="kpi-icon" style="color: #3498db">
+                <i class="ph ph-coins"></i>
+              </div>
+              <div class="kpi-info">
+                <p class="kpi-label">Commissions Ext.</p>
+                <h3 class="kpi-value" id="live-commissions">0 €</h3>
+                <span class="kpi-subtext">Flux Partenaires</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-icon" style="color: #001554">
+                <i class="ph ph-users"></i>
+              </div>
+              <div class="kpi-info">
+                <p class="kpi-label">Communauté</p>
+                <h3 class="kpi-value" id="live-total-users">0</h3>
+                <span class="kpi-subtext" id="live-total-orders-label"
+                  >Ventes : <span id="live-total-orders">0</span></span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="charts-container"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 20px;
+              margin-top: 25px;
+            "
+          >
+            <div
+              class="chart-box"
+              style="background: white; padding: 20px; border-radius: 12px"
+            >
+              <h4>Analyse des demandes</h4>
+              <div style="height: 250px">
+                <canvas id="demandesGraph"></canvas>
+              </div>
+            </div>
+            <div
+              class="chart-box"
+              style="background: white; padding: 20px; border-radius: 12px"
+            >
+              <h4>Fluctuation Ventes (Avril 2026)</h4>
+              <div style="height: 250px">
+                <canvas id="fluctuationGraph"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="messaging-view"
+          style="
+            display: none;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+          "
+        >
+          <h3><i class="ph ph-envelope-open"></i> Centre de Communication</h3>
+          <div
+            class="messaging-grid"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 20px;
+              margin-top: 20px;
+            "
+          >
+            <div class="composer">
+              <label>Catégorie :</label>
+              <select
+                id="msg-category"
+                style="width: 100%; padding: 10px; margin-bottom: 10px"
+              >
+                <option value="relance">Relance (Commandes en attente)</option>
+                <option value="promo">Promotion (Global)</option>
+                <option value="info">Information (Global)</option>
+              </select>
+              <label>Sujet :</label>
+              <input
+                type="text"
+                id="msg-subject"
+                style="width: 100%; padding: 10px; margin-bottom: 10px"
+              />
+              <label>Message :</label>
+              <textarea
+                id="msg-body"
+                rows="8"
+                style="width: 100%; padding: 10px"
+              ></textarea>
+              <button
+                class="btn-add"
+                onclick="envoyerCampagne()"
+                style="width: 100%; margin-top: 15px"
+              >
+                Envoyer la campagne
+              </button>
+            </div>
+            <div
+              class="guide"
+              style="background: #f8f9fa; padding: 20px; border-radius: 8px"
+            >
+              <h4>Conseils Stratégiques</h4>
+              <p>
+                <small
+                  >Les messages incluent automatiquement l'en-tête
+                  EcoTech.</small
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <section
+          id="main-table-section"
+          class="table-container"
+          style="display: none"
+        >
+          <table>
+            <thead>
+              <tr id="table-head"></tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <div id="modal-confirm" class="modal">
+      <div class="modal-content">
+        <h3 id="confirm-title">Confirmation</h3>
+        <p id="confirm-message"></p>
+        <div class="modal-buttons">
+          <button class="btn-secondary" onclick="closeModal('modal-confirm')">
+            Annuler
+          </button>
+          <button id="confirm-btn-ok" class="btn-danger">Confirmer</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-form-staff" class="modal">
+      <div class="modal-content">
+        <h3>Nouveau Collaborateur</h3>
+        <input type="text" id="staff-nom" placeholder="Nom" />
+        <input type="text" id="staff-prenom" placeholder="Prénom" />
+        <input type="email" id="staff-email" placeholder="Email" />
+        <input type="text" id="staff-service" placeholder="Service (ex: SAV)" />
+        <div class="modal-buttons">
+          <button
+            class="btn-secondary"
+            onclick="closeModal('modal-form-staff')"
+          >
+            Annuler
+          </button>
+          <button class="btn-add" onclick="validerAjoutStaff()">
+            Enregistrer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-stock" class="modal">
+      <div class="modal-content">
+        <h3>Modifier le Stock</h3>
+        <p id="stock-product-name" style="font-weight: bold"></p>
+        <input type="number" id="new-qte" min="0" />
+        <div class="modal-buttons">
+          <button class="btn-secondary" onclick="closeModal('modal-stock')">
+            Annuler
+          </button>
+          <button class="btn-edit" id="stock-confirm-btn">Mettre à jour</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin_dashboard.js"></script>
+    <script>
+      function updateMessageTemplate() {
+        const cat = document.getElementById("msg-category").value;
+        const body = document.getElementById("msg-body");
+        const subject = document.getElementById("msg-subject");
+
+        if (cat === "promo") {
+          subject.value = "Offre Exceptionnelle chez EcoTech Shop !";
+          body.value =
+            "Profitez dès maintenant de -20% sur tout le rayon informatique avec le code ADMIN20. Offre valable uniquement cette semaine !";
+        } else if (cat === "info") {
+          subject.value =
+            " Information importante : Mise à jour de nos services";
+          body.value =
+            "Nous vous informons qu'une maintenance technique aura lieu ce soir à partir de 22h. Le site restera accessible mais des ralentissements sont possibles.";
+        } else {
+          subject.value = "Votre panier EcoTech vous attend !";
+          body.value =
+            "Nous avons remarqué que vous n'avez pas terminé votre commande. Vos articles sont réservés pour une durée limitée. Cliquez ici pour finaliser votre achat.";
+        }
+      }
+
+      function documentationLink() {
+        window.open(
+          "http://localhost/ecotechnologie/ecotechadmin/ecotechadmin_api/Ecotechdocu.html",
+          "_blank",
+        );
+      }
+    </script>
+  </body>
+</html>

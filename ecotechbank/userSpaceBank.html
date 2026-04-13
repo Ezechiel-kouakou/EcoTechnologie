@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espace client - Ecotech</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #0b1f66;
+        --primary-hover: #16308f;
+        --secondary: #f5f7fc;
+        --white: #ffffff;
+        --text: #111827;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --success: #16a34a;
+        --danger: #dc2626;
+        --shadow: 0 10px 25px rgba(11, 31, 102, 0.08);
+        --radius: 18px;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f8fafc;
+        color: var(--text);
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* HEADER */
+      .topbar {
+        width: 100%;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .topbar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .brand img {
+        width: 200px;
+        height: 150px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .nav-links a {
+        color: var(--primary);
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        opacity: 0.75;
+      }
+
+      .logout-btn {
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: 10px 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.25s ease;
+      }
+
+      .logout-btn:hover {
+        background: var(--primary-hover);
+      }
+
+      /* MAIN */
+      .bank-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 24px 40px;
+      }
+
+      .welcome-section {
+        margin-bottom: 28px;
+      }
+
+      .welcome-section h1 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+
+      .welcome-section p {
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      /* ALERT PAYMENT */
+      #paymentArea {
+        display: none;
+        background: #eef4ff;
+        border: 1px solid #cddcff;
+        border-radius: 16px;
+        padding: 22px;
+        margin-bottom: 28px;
+      }
+
+      #paymentArea p {
+        margin-bottom: 10px;
+        color: var(--primary);
+      }
+
+      .btn-pay {
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: 12px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.25s ease;
+      }
+
+      .btn-pay:hover {
+        background: var(--primary-hover);
+      }
+
+      /* GRID */
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+
+      .card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      /* SOLDE */
+      .balance-card {
+        padding: 32px;
+        min-height: 230px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(135deg, #0b1f66 0%, #2140a0 100%);
+        color: var(--white);
+      }
+
+      .balance-card p {
+        font-size: 1rem;
+        opacity: 0.92;
+        margin-bottom: 10px;
+      }
+
+      .balance-card h1 {
+        font-size: 3rem;
+        margin-bottom: 14px;
+      }
+
+      .balance-card .subtext {
+        font-size: 0.95rem;
+        opacity: 0.82;
+      }
+
+      /* CARTE BANCAIRE */
+      .credit-card-wrapper {
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .credit-card {
+        width: 100%;
+        max-width: 360px;
+        min-height: 210px;
+        border-radius: 20px;
+        padding: 24px;
+        color: var(--white);
+        background: linear-gradient(135deg, #0f172a, #1e3a8a);
+        box-shadow: 0 16px 35px rgba(15, 23, 42, 0.25);
+      }
+
+      .chip {
+        width: 52px;
+        height: 38px;
+        background: linear-gradient(135deg, #f4c542, #d89b12);
+        border-radius: 8px;
+        margin-bottom: 28px;
+      }
+
+      .card-number {
+        font-size: 1.3rem;
+        letter-spacing: 3px;
+        margin-bottom: 24px;
+      }
+
+      .card-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+      }
+
+      .card-info small {
+        display: block;
+        opacity: 0.7;
+        margin-bottom: 6px;
+      }
+
+      /* HISTORIQUE */
+      .section-card {
+        padding: 24px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin-bottom: 18px;
+      }
+
+      #transactionList {
+        min-height: 120px;
+      }
+
+      #noTransactions {
+        text-align: center;
+        color: var(--muted);
+        padding: 28px 0;
+      }
+
+      .transaction-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .transaction-item:last-child {
+        border-bottom: none;
+      }
+
+      .transaction-left {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .transaction-label {
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .transaction-date {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .transaction-amount {
+        font-weight: 700;
+      }
+
+      .transaction-amount.positive {
+        color: var(--success);
+      }
+
+      .transaction-amount.negative {
+        color: var(--danger);
+      }
+
+      /* FOOTER */
+      footer {
+        margin-top: 50px;
+        background: var(--primary);
+        color: var(--white);
+      }
+
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: var(--white);
+        font-size: 0.92rem;
+        opacity: 0.9;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .topbar-inner {
+          flex-direction: column;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .dashboard-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .balance-card h1 {
+          font-size: 2.4rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .bank-container {
+          padding: 0 16px 30px;
+        }
+
+        .welcome-section h1 {
+          font-size: 1.6rem;
+        }
+
+        .card-number {
+          font-size: 1.05rem;
+          letter-spacing: 2px;
+        }
+
+        .logout-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <img
+            src="../ecotechshop/ecotechshop_pictures/logo-ecotechBank.png"
+            alt=""
+          />
+        </div>
+
+        <nav class="nav-links">
+          <a href="contact.html">Contact</a>
+          <a href="#">Espace client</a>
+        </nav>
+
+        <button class="logout-btn" onclick="logout()">
+          <i class="fa-solid fa-power-off"></i> Se déconnecter
+        </button>
+      </div>
+    </header>
+
+    <main class="bank-container">
+      <section class="welcome-section">
+        <h1>Espace client Ecotech</h1>
+        <p>
+          Consultez votre solde, vos paiements et votre historique dans une
+          interface harmonisée avec votre site.
+        </p>
+      </section>
+
+      <div id="paymentArea">
+        <p>
+          <i class="fa-solid fa-basket-shopping"></i>
+          <strong>Transaction en attente</strong>
+        </p>
+        <p>
+          Montant à régler :
+          <span id="pendingAmount" style="font-size: 1.1em; font-weight: 700">
+            0.00
+          </span>
+          €
+        </p>
+        <button class="btn-pay" onclick="validerPaiement()">
+          Confirmer le paiement
+        </button>
+      </div>
+
+      <section class="dashboard-grid">
+        <div class="balance-card card">
+          <p>Solde total disponible</p>
+          <h1 id="userSolde">0.00 €</h1>
+          <span class="subtext">Compte client sécurisé</span>
+        </div>
+
+        <div class="credit-card-wrapper card">
+          <div class="credit-card">
+            <div class="chip"></div>
+
+            <div id="cardNumber" class="card-number">**** **** **** ****</div>
+
+            <div class="card-info">
+              <div>
+                <small>Titulaire</small>
+                <span id="cardHolder">
+                  <i class="fa-solid fa-sync fa-spin-reverse"></i>
+                </span>
+              </div>
+
+              <div style="text-align: right">
+                <small>Expire</small>
+                <span>12/29</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card card">
+        <h2 class="section-title">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          Historique des activités
+        </h2>
+
+        <div id="transactionList">
+          <p id="noTransactions">Aucune transaction récente.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <p>© 2025 Ecotech - Dev Team. Tous droits réservés.</p>
+
+        <div class="footer-links">
+          <a href="#">Conditions d’utilisation</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">Protection des données</a>
+          <a href="#">Mentions légales</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="notification-container"></div>
+
+    <script src="userSpaceBank.js"></script>
+
+    <script>
+      async function logout() {
+        if (typeof showToast === "function") {
+          showToast("Fermeture de la session sécurisée...", "info");
+          await new Promise((resolve) => setTimeout(resolve, 800));
+        }
+
+        localStorage.clear();
+        window.location.replace("authbank.html");
+      }
+    </script>
+  </body>
+</html>

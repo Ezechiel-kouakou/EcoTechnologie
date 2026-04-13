@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="auth_style.css" />
+    <title>Login - Ecotech</title>
+  </head>
+  <header>
+    <div class="auth-header">
+      <div class="logo">
+        <img src="./ecotechshop_pictures/logo-ecotech.png" alt="Logo Ecotech" />
+      </div>
+      <div class="auth-ecotech">
+        <h2>Authentification</h2>
+      </div>
+    </div>
+  </header>
+  <body>
+    <main class="main-content">
+      <form id="loginForm">
+        <div class="connect-form">
+          <div class="input-part">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="text" id="email" placeholder="Email" required />
+          </div>
+          <div class="input-part">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              placeholder="Mot de passe"
+              required
+            />
+          </div>
+          <div class="btn-connect">
+            <button type="submit">Se connecter</button>
+          </div>
+          <div class="register">
+            <p>vous n'avez pas encore de compte ?</p>
+            <div class="btn-register">
+              <button onclick="window.location.href = 'register_ecotech.html'">
+                s'inscrire
+              </button>
+            </div>
+          </div>
+          <div id="loginMessage"></div>
+        </div>
+      </form>
+    </main>
+
+    <!-- <a href="../ecotechbank-api-fr/marchands-config.php"></a> -->
+    <footer class="footer-auth-ecotech">
+      <p>&copy; 2026 ByEcotech Dev Team. Tous droits réservés.</p>
+    </footer>
+    <div id="toast-container"></div>
+    <script src="auth_ecotech.js"></script>
+  </body>
+</html>
+<!-- <a href="../index.html">Retour à l'accueil</a> -->

@@ -6,11 +6,13 @@ logs
 *.local
 .env
 /public/debug.php
-
+testes_integrationsFront.html
+node.html
+accueil.js
+../ecotechbank/ecotechbank_api/.env
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
-
 

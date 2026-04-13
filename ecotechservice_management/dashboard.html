@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EcoTech - Dashboard Employé</title>
+    <style>
+      .card {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+        background: #fff;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .info-client {
+        color: #001554;
+        font-weight: bold;
+        font-size: 0.9em;
+      }
+
+      textarea {
+        width: 100%;
+        height: 60px;
+        margin-top: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      textarea[readonly] {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+      }
+      textarea.editable {
+        border: 1px solid #001554;
+        background: #e6f0ff;
+      }
+      button {
+        cursor: pointer;
+        background: #001554;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        border-radius: 4px;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        align-items: center;
+        background: white;
+        border-radius: 8px;
+        color: #001554;
+        padding: 10px 20px;
+        box-shadow:
+          inset 2px 2px 5px #a2a2a2,
+          inset -2px -2px 5px #ffffff;
+      }
+      .logo img {
+        height: 80px;
+      }
+      .service-part {
+        text-align: right;
+      }
+      .service-part h1 {
+        margin: 0;
+        font-size: 1.5em;
+      }
+      .service-part p {
+        margin: 0;
+        font-size: 0.9em;
+      }
+      .service-part a {
+        color: #001554;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+      }
+      /* Animation de pulsation douce */
+      @keyframes pulse-red {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+        }
+        70% {
+          transform: scale(1.05);
+          box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+        }
+      }
+
+      /* Appliqué uniquement si le chiffre est > 0 (géré par une classe JS ou manuellement) */
+      .badge-urgent {
+        background: #e74c3c;
+        color: white;
+        width: 10px;
+        padding: 5px 12px;
+        border-radius: 50px;
+        margin-left: 80px;
+        font-weight: bold;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        animation: pulse-red 2s infinite;
+      }
+      .counter-ended {
+        background: #f4f4f4;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        min-width: 100px;
+        box-shadow:
+          inset 2px 2px 5px #a2a2a2,
+          inset -2px -2px 5px #ffffff;
+      }
+      .counter-inProgress {
+        background: #f4f4f4;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        min-width: 100px;
+        box-shadow:
+          inset 2px 2px 5px #a2a2a2,
+          inset -2px -2px 5px #ffffff;
+      }
+      .activity {
+        display: flex;
+        gap: 15px;
+        justify-content: flex-start;
+        margin-top: 10px;
+      }
+      .en-attente {
+        font-weight: lighter;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: #001554;
+        margin-bottom: 10px;
+        border-left: 4px solid #001554;
+        border-top: 1px solid #001554;
+        margin-right: 22px;
+      }
+      .traites {
+        font-weight: lighter;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: #001554;
+        border-right: 4px solid #001554;
+        border-top: 1px solid #001554;
+        padding-left: 5px;
+        margin-left: 30px;
+        margin-bottom: 10px;
+      }
+      .counter-ended b {
+        color: #27ae60;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.2em;
+      }
+      .left-info {
+        background: #f4f4f4;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .right-info {
+        max-width: 60%;
+      }
+      @media (max-width: 768px) {
+        .hero {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .right-info,
+        .left-info {
+          max-width: 100%;
+        }
+      }
+      .left-info h2 {
+        margin-top: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: lighter;
+      }
+      .right-info h2 {
+        margin-top: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: lighter;
+      }
+      .right-info ul li {
+        margin-bottom: 10px;
+      }
+      .right-info ul li b {
+        color: #001554;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .right-info ul li {
+        color: #555;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="../ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+          alt="ecotech logo"
+        />
+      </div>
+      <div class="service-part">
+        <h1>Tableau de bord : Service <span id="displayService">...</span></h1>
+        <p>
+          Bienvenue <b id="staffName"></b> |
+          <a href="logout.php">Déconnexion</a>
+        </p>
+      </div>
+    </header>
+    <main>
+      <div class="hero">
+        <div class="right-info">
+          <h2>Qualité du Service</h2>
+          <ul
+            style="list-style: none; padding: 0; font-size: 0.9em; color: #555"
+          >
+            <li><b>Réactivité :</b> Visez une réponse en moins de 2h.</li>
+            <li>
+              <b>Clarté :</b> Utilisez un ton professionnel et bienveillant.
+            </li>
+            <li>
+              <b>Efficacité :</b> Vérifiez l'historique client avant de
+              répondre.
+            </li>
+          </ul>
+        </div>
+
+        <div class="left-info" style="text-align: right">
+          <h2>Activité du service</h2>
+          <div class="activity">
+            <div class="counter-inProgress">
+              <span class="en-attente">En attente</span>
+              <span id="count-attente" class="badge-urgent">0</span>
+            </div>
+            <div class="counter-ended">
+              <span class="traites">Traités</span>
+              <b id="count-traite" style="font-size: 1.2em; color: #27ae60"
+                >0</b
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="listeMessages">
+        <p>Chargement des messages...</p>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2026 EcoTech. Tous droits réservés.</p>
+    </footer>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

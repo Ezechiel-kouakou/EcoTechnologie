@@ -1,0 +1,240 @@
+html, body {
+    margin: 0; padding: 0; font-family:Verdana, Geneva, Tahoma, sans-serif;
+     background: 
+    linear-gradient(rgba(77, 77, 77, 0.271), rgba(0, 0, 0, 0.85)),
+    url('../ecotechadmin-pictures/background-admin.png') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex; justify-content:flex-start; align-items: center;
+    height: 100vh;
+}
+
+   #global-loader {
+    position: fixed;
+    inset: 0;
+    display: none;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10000;
+}
+
+/* .spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(125, 94, 94, 0.1);
+    border-top: 4px solid #018bf5;
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+} */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.1); /* Plus clair pour voir le contraste */
+    border-top: 4px solid #001554;
+    border-radius: 50%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    animation: rotate 1s linear infinite; 
+}
+.login-container{
+    width: 400px;
+    margin: 100px auto;
+    height: 500px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    margin-left: 30px;
+    gap:20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+header{
+    background: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    align-items: center;
+  box-shadow: inset 2px 2px 5px #a2a2a2,
+              inset -2px -2px 5px #ffffff;
+}
+.administration-ecotech {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.admin-email, .admin-password {
+    position: relative;
+    margin-bottom: 20px;
+}
+.admin-email i, .admin-password i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+.admin-email input, .admin-password input {
+    width:80%;
+    padding: 10px 10px 10px 35px; /* Espace pour l'icône */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 8px;
+    color: #001554;
+}
+
+.admin-email input:focus, .admin-password input:focus {
+    border-color: #001554;
+    outline: none;
+}
+.admin-email input::placeholder, .admin-password input::placeholder {
+    color:#999;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.admin-email i, .admin-password i{
+    color: #001554;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background:#001554;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top:20px
+}
+.login-container button:hover {
+    background:#001554;
+}
+.logo-admin-full {
+    width: 150px;
+    height: auto;
+}
+.logo-admin-full img {
+    width: 100%;
+    height: auto;
+}
+.tx-admin{
+    font-size: 0.9rem;
+    color: #001554;
+    font-weight: lighter;
+}
+.message-impact{
+    backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+  width: 400px;
+  margin-left: 200px;
+}
+.admin-informations p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #001554;
+    font-size: 0.9rem;
+}
+.admin-informations i {
+    color: #001554;
+    font-size: 1.2rem;
+}
+.admin-informations{
+    margin-top: 30px;
+}
+
+/* ----------------------------------------------------- access reserver au  spinner des admin ----------------------------------------------- */
+
+.form-message-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.success-popup {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: popIn 0.5s ease-out;
+    max-width: 300px;
+}
+.ph-check-circle {
+    font-size: 60px;
+    color: #27ae60;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.success-popup p {
+    color: #2c3e50;
+    font-size: 0.8rem;
+    font-weight:lighter;
+    margin: 10px 0;
+}
+.success-popup span {
+    color: #001554;
+    font-size: 0.9rem;
+}
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.admin-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #001554;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto 0;
+    animation: rotate 1s linear infinite; 
+}
+
+.error-popup{
+     background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: popIn 0.5s ease-out;
+    max-width: 300px;
+}
+.ph-warning-circle{
+    font-size: 60px;
+    color: #e74c3c;
+    margin-bottom: 20px;
+    display: block;
+}
+.error-popup p {
+    color: #2c3e50;
+    font-size: 0.8rem;
+    font-weight:lighter;
+    margin: 10px 0;
+}
+.error-popup span {
+    color: #001554;
+    font-size: 0.9rem;
+}

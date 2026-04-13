@@ -1,0 +1,564 @@
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background:url(./ecotechshop_pictures/photo_background_ordinateur.jpg) no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    color: #0e0d0d;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.cart-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border: 1px solid #fffefe;
+    border-radius: 7px;
+    padding: 15px;
+    margin-bottom: 8px;
+    margin-top: 5px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cart-card-left h3 { 
+    margin: 0 0 5px 0; 
+    color: #ffffff;
+    font-weight: lighter;
+}
+.cart-details { 
+    font-size: 0.7rem; 
+    color: white;
+    font-weight:lighter; 
+}
+
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-plus {
+    background: #007BFF;
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-plus:hover { background: #00d4ff; transform: scale(1.1); }
+.cart-card-right {
+   margin-right: 40px;
+   background:transparent;
+   padding: 10px;
+}
+.cart-card-right img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: transparent;
+}
+
+.total-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border:none;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    text-align: left;
+    font-size: 1.2rem;
+    /* box-shadow: 0 2px 12px rgb(189, 189, 189); */
+}
+.total-section span {
+    color: #001554;
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+.total-section p{
+    margin: 0;
+    color:black;
+    font-size: 1.2rem;
+    border-bottom:2px solid #001554;
+    border-right:2px solid #001554;
+    padding: 10px;
+    width: 40%;
+    font-weight: lighter;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    /* background: rgb(87, 87, 87); */
+}
+.summary{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    margin-bottom:50px;
+}
+.total-section button{
+    background: white !important;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px 20px;
+    height: 60px;;
+    border-radius: 5px;
+    border-left: 4px solid #001554;
+    border-right:4px solid #001554;
+    border-top: none;
+    border-bottom: none;
+    cursor: pointer;
+    margin-left: 1150px;
+    margin-bottom:50px;
+    font-size: 1rem;
+    margin-top: 15px;
+    box-shadow: 0 1px 10px rgb(141, 141, 141);
+}
+
+.total-section button img{
+    width: 200px;
+    height: auto;
+    font-size: xx-large;
+}
+
+.paiement-infos p{
+    font-size: 0.8rem;
+    margin-left: 825px;
+    color: #001554;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 10px;
+}
+.btn-qty {
+    background: white;
+    border: 1px solid #ffffff;
+    color: #001554;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s; 
+    box-shadow: 0 4px 12px rgb(6, 6, 6);
+}
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    background: white;
+    height:120px;
+     padding: 8px;
+    width:100%;
+    border-radius: 8px;
+
+}
+.menu-user-friendly {
+    color: #001554;
+    font-weight: lighter;
+    font-size: 0.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background:white;
+    height: 40px;
+    width:350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 10px;
+    border:0px solid #001554;
+    border-radius: 5px;
+    margin-right:80px;
+    /* box-shadow: 0 2px 10px #000000;; */
+}
+.menu-user-friendly button {
+    background: #001554;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-weight:bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.menu-user-friendly i{
+    font-size: 1.1rem;
+}
+.menu-user-friendly strong{
+    font-size: 0.8rem;
+}
+.btn-qty:hover {
+    background: #001554;
+    color: white;
+    border: none;
+}
+
+.cart-controls span {
+    min-width: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: lighter;
+    color:white;
+}
+.logo{
+    width: 200px;
+    height: 200px;
+    font-size: larger;
+    background:transparent !important;
+    padding: 5px;
+    border-radius: 50px;
+}
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* --- RESPONSIVE PANIER COMPACT & HORIZONTAL --- */
+@media screen and (max-width: 768px) {
+
+    /* 1. Header ultra-compact */
+    header {
+        height: auto;
+        padding: 10px;
+        flex-wrap: nowrap; /* Force l'horizontalité */
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .menu-user-friendly {
+        width: auto;
+        margin-right: 0;
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .menu-user-friendly button {
+        padding: 6px 12px;
+        font-size: 0.65rem;
+    }
+
+    /* 2. Cart Card Horizontale et Serrée */
+    .cart-card {
+        flex-direction: row; /* On maintient l'horizontalité */
+        justify-content: flex-start; /* Aligne tout à gauche */
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .cart-card-left {
+        flex: 1; /* Prend l'espace restant au milieu */
+        text-align: left;
+    }
+
+    .cart-card-left h3 {
+        font-size: 0.9rem; /* Titre plus petit */
+        margin-bottom: 2px;
+    }
+
+    .cart-details {
+        font-size: 0.65rem;
+    }
+
+    /* 3. Image à droite, mais plus petite */
+    .cart-card-right {
+        margin-right: 0;
+        padding: 0;
+        order: 2; /* Force l'image à rester à droite */
+    }
+
+    .cart-card-right img {
+        width: 60px; /* Taille réduite pour mobile */
+        height: 60px;
+    }
+
+    /* 4. Contrôles (Boutons + / -) */
+    .cart-controls {
+        gap: 8px; /* On resserre les boutons */
+        margin-top: 5px;
+    }
+
+    .btn-qty, .btn-plus {
+        width: 25px; /* Boutons plus petits */
+        height: 25px;
+    }
+
+    /* 5. Section Total */
+    .total-section {
+        padding: 15px;
+        display: flex;
+        flex-direction: row; /* Reste horizontal aussi */
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .total-section p {
+        width: auto; /* Plus de width 40% qui casse tout */
+        font-size: 0.85rem;
+        border: none; /* On simplifie pour le mobile */
+        padding: 0;
+    }
+
+    .total-section span {
+        font-size: 1.1rem;
+    }
+
+    .total-section button {
+        margin-top: 0;
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Optimisation pour les écrans très étroits (< 360px) */
+@media screen and (max-width: 380px) {
+    .cart-card-left h3 {
+        font-size: 0.8rem;
+    }
+    .cart-card-right img {
+        width: 50px;
+        height: 50px;
+    }
+    .cart-controls span {
+        font-size: 0.9rem;
+    }
+}
+
+/* --- RESPONSIVE PANIER MIS À JOUR (Boutons & Paiement) --- */
+@media screen and (max-width: 768px) {
+
+    /* 1. Header & Navigation (Toujours compact) */
+    header {
+        height: auto;
+        padding: 10px;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .menu-user-friendly {
+        width: auto;
+        margin-right: 0;
+        gap: 10px;
+        padding: 5px;
+    }
+
+    /* 2. Cart Card (Maintien Horizontal) */
+    .cart-card {
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .cart-card-right img {
+        width: 65px; /* Taille optimisée pour Phosphor icons */
+        height: 65px;
+    }
+
+    .cart-card-left h3 {
+        font-size: 0.9rem;
+    }
+
+    /* 3. Section Total & Résumé */
+    .summary {
+        margin-bottom: 20px; /* Moins d'espace que sur PC */
+        align-items: center; /* On centre le résumé sur mobile */
+        text-align: center;
+        width: 100%;
+    }
+
+    .total-section {
+        padding: 15px;
+        display: flex;
+        flex-direction: column; /* On passe en colonne pour le bouton de paiement logo */
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .total-section p {
+        width: 100% !important;
+        font-size: 1rem;
+        border: none;
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* 4. Correction du Bouton de Paiement (Important !) */
+    .total-section button {
+        margin-left: 0 !important; /* Annule le 1150px du PC */
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%; /* Bouton large pour le clic mobile */
+        max-width: 300px;
+        height: 50px; /* Un peu plus petit que les 60px PC */
+        border-left: 3px solid #001554;
+        border-right: 3px solid #001554;
+    }
+
+    .total-section button img {
+        width: 140px; /* On réduit le logo de paiement (Stripe/PayPal) */
+    }
+
+    /* 5. Infos de paiement */
+    .paiement-infos p {
+        margin-left: 0 !important; /* Annule le 825px du PC */
+        text-align: center;
+        font-size: 0.75rem;
+        width: 100%;
+    }
+
+    /* 6. Boutons de quantité (Adaptés à Phosphor) */
+    .btn-qty, .btn-plus {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .btn-plus i, .btn-qty i {
+        font-size: 14px; /* Taille pour les icônes ph-plus / ph-minus */
+    }
+}
+
+/* Ajustements pour les écrans très étroits (< 380px) */
+@media screen and (max-width: 380px) {
+    .cart-card-left h3 {
+        font-size: 0.8rem;
+    }
+    
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .total-section span {
+        font-size: 1.2rem;
+    }
+}
+.empty-cart-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.empty-cart-state i {
+    font-size: 100px;
+    color: #d1d5db; /* Gris clair pro */
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.empty-cart-state h3 {
+    color: #001554;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.empty-cart-state p {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.btn-shop {
+    background-color: #001554;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-shop:hover {
+    background-color: #2174e7;
+    transform: translateY(-2px);
+}
+/* Animation de balancement */
+@keyframes swing {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(10deg); }
+    40% { transform: rotate(-10deg); }
+    60% { transform: rotate(5deg); }
+    80% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.empty-cart-state svg {
+    margin-bottom: 20px;
+    filter: drop-shadow(0px 4px 6px rgba(255, 255, 255, 0.05));
+    /* L'animation se déclenche en boucle toutes les 3 secondes */
+    animation: swing 2s ease-in-out infinite;
+    transform-origin: top center; /* Le panier balance depuis son "anse" */
+}
+
+/* --- STYLE DU TOASTER (REPRODUCTION THANK.PHP) --- */
+#toast-container { 
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 10001; 
+}
+
+.toast { 
+    background: #001554; 
+    color: white; 
+    padding: 15px 25px; 
+    border-radius: 8px; 
+    margin-bottom: 10px; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Ajout d'une ombre pour le relief */
+    max-width: 350px; /* IMPORTANT : Empêche de prendre toute la largeur */
+    transform: translateX(120%); 
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animation plus fluide */
+}
+
+.toast.show { 
+    transform: translateX(0); 
+}
+
+.toast i {
+    font-size: 22px; /* Taille d'icône identique au thank.php */
+}
+
+.toast span {
+    font-size: 14px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Style Error spécifique (SHAKE) */
+.toast.error { 
+    background: #c0392b; 
+    animation: shake 0.5s both; 
+}
+
+@keyframes shake { 
+    0%, 100% { transform: translateX(0); } 
+    20%, 60% { transform: translateX(-10px); } 
+    40%, 80% { transform: translateX(10px); } 
+}

@@ -1,0 +1,36 @@
+--- Nouvelle tentative 2026-03-14 12:08:36 ---
+Données brutes reçues : 
+Données décodées : 
+
+--- Nouvelle tentative 2026-03-14 12:09:37 ---
+Données brutes reçues : 
+Données décodées : 
+
+--- Nouvelle tentative 2026-03-14 12:12:24 ---
+Données brutes reçues : 
+Données décodées : 
+
+--- Nouvelle tentative 2026-03-14 12:12:27 ---
+Données brutes reçues : 
+Données décodées : 
+
+--- Nouvelle tentative 2026-03-14 12:12:27 ---
+Données brutes reçues : 
+Données décodées : 
+
+--- Nouvelle tentative 2026-03-14 12:12:27 ---
+Données brutes reçues : 
+Données décodées : 
+
+[2026-03-14 12:20:23] Reçu: 
+[2026-03-14 12:20:23] Reçu: 
+[2026-03-14 12:28:04] Reçu: 
+[2026-03-14 12:30:00] Reçu: {"id_client":32,"montant":2697}
+[2026-03-14 12:30:11] Reçu: {"id_client":32,"montant":2697}
+[2026-03-14 12:32:59] Reçu: {"id_client":68,"montant":899}
+[2026-03-14 12:35:28] Reçu: 
+[2026-03-14 12:35:31] Reçu: 
+[2026-03-14 12:35:31] Reçu: 
+[2026-03-14 12:35:32] Reçu: 
+[2026-03-14 12:35:32] Reçu: 
+[2026-03-14 12:35:32] Reçu: 

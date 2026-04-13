@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EcoTech - Connexion Administration</title>
+    <link rel="stylesheet" href="admin_style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+  </head>
+  <body>
+    <div class="login-container">
+      <header>
+        <div class="logo-admin-full">
+          <img
+            src="../../ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+            alt="Logo EcoTech"
+          />
+        </div>
+        <div class="tx-admin">
+          <p>Portail Administrateur</p>
+        </div>
+      </header>
+      <div class="administration-ecotech">
+        <form id="adminLoginForm">
+          <div class="admin-email">
+            <i class="ph ph-user"></i>
+            <input
+              type="email"
+              id="adminEmail"
+              placeholder="Email Administrateur"
+              required
+            />
+          </div>
+          <div class="admin-password">
+            <i class="ph ph-lock"></i>
+            <input
+              type="password"
+              id="adminPassword"
+              placeholder="Mot de passe"
+              required
+            />
+          </div>
+          <button type="submit">Se connecter au Dashboard</button>
+        </form>
+        <div class="admin-informations">
+          <p>
+            <i class="ph ph-info"></i>
+            Accès réservé aux administrateurs. Veuillez entrer vos identifiants
+            administrateur valides.
+          </p>
+        </div>
+        <div id="adminLoginMessage"></div>
+      </div>
+    </div>
+    <div class="message-impact">
+      <p>
+        Plateforme sécurisée dédiée à la gestion interne. Veuillez vous
+        authentifier pour continuer.
+      </p>
+    </div>
+    <script src="admin_auth.js"></script>
+  </body>
+</html>

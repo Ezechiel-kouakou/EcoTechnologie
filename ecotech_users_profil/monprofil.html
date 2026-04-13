@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="favicon"
+      type="image/x-icon"
+      href="../ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+    />
+    <title>Mon compte</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+    <link rel="stylesheet" href="monprofil.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <header class="dashboard-header">
+        <div class="user-brief">
+          <div class="avatar">
+            <img
+              src="../ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+              alt="#"
+            />
+          </div>
+          <div class="user-titles">
+            <div class="mon-nom">
+              <p class="myName">Nom & Prénom:</p>
+              <p id="view-username">Chargement...</p>
+            </div>
+            <div class="mon-email">
+              <p class="myEmail">Email:</p>
+              <p id="view-email">...</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <section class="info-section">
+          <h2>Détails du compte</h2>
+          <div id="loader">Chargement des données sécurisées...</div>
+          <div id="profile-data" style="display: none">
+            <div class="info-card">
+              <span class="label">Statut du compte</span>
+              <span class="value status-verified">Vérifié via EcotechID</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="history-section">
+          <h2>Historique des transactions</h2>
+          <div class="transaction-list" id="transaction-history">
+            <div class="transaction-card">
+              <div class="tx-logo">
+                <img
+                  src="../ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+                  alt="Ecotech Logo"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/90x90?text=EB'
+                  "
+                />
+              </div>
+              <div class="tx-details">
+                <span class="tx-name">Panneau Solaire 400W</span>
+                <span class="tx-date">18 Mars 2026 • 14:35</span>
+              </div>
+              <div class="tx-amount">
+                <span class="price">- 450.00 €</span>
+                <button class="btn-pdf" title="Télécharger la facture">
+                  <i class="ph ph-download-simple"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <!-- <a href="../../ecotechshop/ecotechshop_pictures/logo-ecotechBank.png"></a> -->
+    <script src="monprofil.js"></script>
+    <!-- <script src="../ecotechshop/index.js"></script> -->
+    <script src="../ecotechshop/ecotech_logout.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Session Expirée - Ecotech</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+      .expired-container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: #f8f9fa;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .expired-card {
+        background: white;
+        padding: 40px;
+        border-radius: 6px;
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+      }
+      .expired-icon {
+        font-size: 60px;
+        color: #e74c3c;
+        margin-bottom: 20px;
+      }
+      .btn-reconnect {
+        background: #001554;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+        transition: 0.3s;
+      }
+      .btn-reconnect:hover {
+        background: #002aab;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="expired-container">
+      <div class="expired-card">
+        <i class="ph ph-clock-countdown expired-icon"></i>
+        <h2>Session expirée</h2>
+        <p>Bonjour, Chèr(e) Administrateur(trice)</p>
+        <p>
+          Par mesure de sécurité et suite à 2 heures d'inactivité, vous avez été
+          déconnecté.
+        </p>
+        <a
+          href="/ecotechnologie/ecotechadmin/ecotechadmin_api/admin_auth.html"
+          class="btn-reconnect"
+        >
+          <i class="ph ph-user"></i> Se reconnecter
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

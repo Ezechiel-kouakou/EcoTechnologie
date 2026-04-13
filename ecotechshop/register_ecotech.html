@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="register_style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <title>Ecotech auth sys</title>
+  </head>
+ <header>
+    <div class="auth-header">
+      <div class="logo">
+        <img src="./ecotechshop_pictures/logo-ecotech.png" alt="Logo Ecotech" />
+      </div>
+      <div class="auth-ecotech">
+        <h2>Inscription</h2>
+      </div>
+    </div>
+  </header>
+  <body>
+    <main class="main-auth-container">
+      <video autoplay muted loop id="myVideo">
+  <source src="./ecotechshop_pictures/ecotech_background_video.mp4" type="video/mp4">
+</video>
+    <form id="FormulaireInscription">
+      <div class="connect-form">
+        <div class="input-part">
+          <i class="fa-solid fa-user"></i>
+          <input
+            type="text"
+            placeholder="nom d'utilisateur"
+            id="username"
+            required
+          />
+        </div>
+        <div class="input-part">
+        <i class="fa-solid fa-envelope"></i>
+          <input
+            type="text"
+            placeholder="email utilisateur"
+            id="email"
+            required
+          />
+        </div>
+        <div class="input-part">
+          <i class="fa-solid fa-lock"></i>
+          <input
+            type="password"
+            placeholder="mot de passe utilisateur"
+            id="password"
+          />
+        </div>
+        <div class="btn-register">
+        <button type="submit">S'inscrire</button>
+        </div>
+          <div id="btn-connect">
+            </div>
+        <div id="authMessage"></div>
+    </form>
+    
+  </body>
+  </main>
+   <footer class="footer-auth-ecotech">
+      <p>&copy; 2026 ByEcotech Dev Team. Tous droits réservés.</p>
+    </footer>
+  <script src="register_ecotech.js"></script>
+</html>

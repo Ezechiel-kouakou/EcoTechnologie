@@ -1,0 +1,530 @@
+.modal{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+
+}
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90%;
+  max-width: 800px; 
+  max-height: 85vh;
+  overflow-y: auto; 
+  box-sizing: border-box;
+ background-image: linear-gradient(rgba(255, 255, 255, 0.85), #001554), url('./image_conf_rules.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  padding: 40px;
+  border-radius: 15px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-header, .modal-body {
+  background-color: transparent !important;
+  box-shadow: none !important; 
+}
+
+.modal-header img {
+   margin-top: -40px;
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+}
+.modal-body section {
+    margin-bottom: 30px;
+}
+.modal-body h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #001554;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(33, 116, 231, 0.1);
+    padding-bottom: 5px;
+}
+.modal-body h3 i {
+    font-size: 16px;
+    opacity: 0.8;
+}
+.modal-body p {
+    font-size: 14.5px;
+    margin-bottom: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #444;
+}
+.modal-body p strong {
+    color: #001554;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.modal-body ul {
+    list-style: none;
+    padding-left: 5px;
+    margin: 15px 0;
+}
+.modal-body li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.modal-body li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #5cb85c; 
+    font-size: 12px;
+}
+.modal-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+    line-height: 25px;
+    border-radius: 50%;
+    background: #001554;
+  color: #fefdfd;
+  font-size: 30px;
+  transition: 0.3s;
+  z-index: 10;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header {
+  padding: 2px 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px 8px 8px 8px;
+  color: black;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.modal-header h2 {
+  font-size: 14px;
+  font-weight:lighter;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #001554;
+}
+.modal-body {
+  padding: 25px 40px; 
+    background-color: rgba(255, 255, 255, 0.5) !important; 
+    color: #333;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    text-align: left;
+  
+}
+.modal-footer {  
+    padding: 2px 16px;
+  background-color: transparent !important;
+  color: black;
+}
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+
+.advantages-section{
+padding:60px 20px;
+text-align:center;
+background:transparent !important;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.advantages-section h2{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.advantages-subtitle{
+color:#666;
+margin-bottom:40px;
+}
+
+.advantages-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+}
+
+.adv-card{
+background:transparent;
+padding:30px;
+width:220px;
+border-radius:10px;
+/* box-shadow:0 4px 15px rgba(0,0,0,0.08); */
+transition:0.3s;
+}
+
+/* .adv-card:hover{
+transform:translateY(-5px);
+} */
+
+.adv-card i{
+font-size:40px;
+color:#001554;
+margin-bottom:15px;
+}
+
+.hero{  
+padding:80px 10%;
+background:transparent !important;
+color:rgb(0, 0, 0);
+}
+
+.hero-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:500px;
+}
+
+.hero-text h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:1.6;
+margin-bottom:30px;
+color:#000000;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hero-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn-primary{
+background:#001554;
+color:white;
+padding:14px 28px;
+border-radius:6px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn-primary:hover{
+background:#001554;
+color:#fff;
+}
+
+.btn-secondary{
+border:2px solid #001554;
+padding:14px 28px;
+border-radius:6px;
+text-decoration:none;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+color:#001554;
+transition:0.3s;
+}
+
+.btn-secondary:hover{
+background:white;
+color:#203a43;
+}
+
+.hero-image img{
+width:420px;
+max-width:100%;
+animation:float 4s ease-in-out infinite;
+}
+
+/* animation douce */
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+@media(max-width:768px){
+
+.hero-container{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-text h1{
+font-size:20px;
+}
+.hero-text p{
+font-size:14px;
+}
+
+.hero-buttons{
+justify-content:center;
+}
+.btn-primary{
+padding:10px 20px;
+font-size:14px;
+width: 100%;
+}
+.btn-secondary{
+padding:10px 20px;
+font-size:14px;
+width: 100%;
+}
+
+}
+
+/* --- RESPONSIVE MODAL & HERO SECTION --- */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Ajustement de la Modal */
+    .modal-content {
+        width: 95%; /* Prend presque toute la largeur */
+        padding: 20px; /* Moins de padding pour gagner de la place */
+        max-height: 90vh;
+        top: 50%;
+        border-radius: 10px;
+    }
+
+    .modal-header img {
+        width: 150px; /* Logo plus petit */
+        margin-top: -20px;
+        height: auto;
+    }
+
+    .modal-header h2 {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .modal-body {
+        padding: 15px 10px; /* On réduit l'espace interne */
+    }
+
+    .modal-body h3 {
+        font-size: 16px; /* Titres de sections plus petits */
+        gap: 8px;
+    }
+
+    .modal-body p {
+        font-size: 13px; /* Texte plus dense pour éviter trop de scroll */
+        line-height: 1.5;
+    }
+
+    .modal-body li {
+        font-size: 12.5px;
+        padding-left: 20px;
+    }
+
+    .close {
+        top: 10px;
+        right: 10px;
+        width: 28px;
+        height: 28px;
+        font-size: 24px;
+        line-height: 24px;
+    }
+
+    /* 2. Section Avantages (Shipping, Support, etc.) */
+    .advantages-section {
+        padding: 30px 10px;
+    }
+
+    .advantages-section h2 {
+        font-size: 22px;
+    }
+
+    .adv-card {
+        width: 100%; /* Une carte par ligne sur mobile */
+        max-width: 280px;
+        padding: 20px;
+    }
+
+    .adv-card i {
+        font-size: 30px;
+    }
+
+    /* 3. Section Hero (Déjà entamée dans ton code, voici les finitions) */
+    .hero {
+        padding: 40px 5%;
+    }
+
+    .hero-image img {
+        width: 280px; /* Taille réduite de l'image animée */
+        margin-top: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 28px; /* Taille plus percutante que 20px */
+        line-height: 1.2;
+    }
+
+    .hero-buttons {
+        flex-direction: column; /* Boutons l'un au-dessus de l'autre */
+        width: 100%;
+        gap: 12px;
+    }
+
+    .btn-primary, .btn-secondary {
+        display: block;
+        width: 100%; /* Boutons pleine largeur pour le pouce */
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
+
+/* Ajustements pour très petits écrans (iPhone SE / < 400px) */
+@media screen and (max-width: 400px) {
+    .modal-content {
+        padding: 15px 10px;
+    }
+    
+    .modal-header h2 {
+        font-size: 11px;
+    }
+
+    .hero-text h1 {
+        font-size: 24px;
+    }
+}
+
+
+/* Style de la cloche */
+.notification-container { position: relative; margin-right: 0px; }
+.notif-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: #333; position: relative; }
+.notif-badge {
+    position: absolute;
+  top: -5px; 
+  right: -5px;
+  background: red;
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  z-index: 0;
+  border: 2px solid #001554;
+}
+
+/* Menu déroulant */
+.notif-dropdown {
+    position: absolute; top: 45px; right: 0; width: 300px; background: white;
+    border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: none; z-index: 1000; overflow: hidden;
+}
+.notif-dropdown.show { display: block; }
+.notif-header { 
+    padding: 10px; border-bottom: 1px solid #eee; display: flex; 
+    justify-content: space-between; align-items: center; font-weight: bold;
+}
+.notif-header button { border: none; background: none; color: #007bff; cursor: pointer; font-size: 12px; }
+.notif-list { max-height: 300px; overflow-y: auto; }
+.notif-item { 
+    padding: 12px; border-bottom: 1px solid #f9f9f9; cursor: pointer; transition: 0.2s;
+}
+.notif-item:hover { background: #f0f7ff; }
+.notif-item.unread { border-left: 4px solid #007bff; background: #fbfcfe; }
+.notif-item h4 { font-size: 14px; margin: 0 0 5px 0; color: #333; }
+.notif-item p { font-size: 12px; margin: 0; color: #666; line-height: 1.4; }
+.empty-msg { padding: 20px; text-align: center; color: #999; font-size: 13px; }
+
+/* Conteneur des notifications */
+.notifications-dropdown {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 350px; /* Largeur par défaut */
+    max-height: 400px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+/* Adaptation spécifique pour Mobile */
+@media (max-width: 480px) {
+    .notif-dropdown {
+        width: 90vw; /* Prend 90% de la largeur de l'écran */
+        right: -50px; /* Ajuste selon ton icône pour centrer un peu plus */
+        position: fixed; /* Évite de déborder si le parent est petit */
+        top: 80px;
+        left: 5%;
+    }
+}

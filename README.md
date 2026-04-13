@@ -1,125 +1,97 @@
-conception, Architecture et Developpement
+<div align="center">
+  <img src="../ecotechnologie/ecotechshop/ecotechshop_pictures/logo-ecotech.png" alt="Logo Ecotech" width="250">
 
-**Conception et architecture base de données**
+# 🌿 EcoTech Ecosystem
 
-_conception DB_
+**Une plateforme Full-Stack : E-Commerce, Fintech & CRM**
 
-DB_name : ecotech_DB
-DB_tableDefined :clients, products, commandes, promotion_applied
-DB_rowsNumber : 4 rows
+[![Database](https://img.shields.io/badge/MySQL-9.1-001554?style=for-the-badge&logo=mysql)](https://www.mysql.com/)
+[![Backend](https://img.shields.io/badge/PHP-8.3-001554?style=for-the-badge&logo=php)](https://www.php.net/)
+[![Status](https://img.shields.io/badge/Architecture-31_Tables-27ae60?style=for-the-badge)]()
 
-_Architecture_
+</div>
 
-l'architecture données renferme les relation entre les table a partir du MCD(modèle conceptuel de Données) celui-ci faisant office de MLD(Modèle logique de données).
-**NB**: dans notre cas on à fait le MLD avant le MCD
-MLD avant MCD :
-**MLD**
+---
 
-CLIENT (id_client)
-0,n
-|
-PASSER
-|
-1,1
-COMMANDE (id_commande)
-|
-| 1,n
-CONTENIR
-| 0,n
-PRODUIT (id_produit)
+## 📌 Vision du Projet
 
-COMMANDE (1,1) —— appartient —— (0,n) PERIODE
+L'objectif d'**EcoTech** est de centraliser trois services majeurs au sein d'une interface unique et sécurisée. Le projet repose sur une architecture robuste de **31 tables SQL**, garantissant une séparation nette des responsabilités (**SoC**).
 
-PERIODE (1,1) —— reçoit —— (0,n) PROMOTION
-PROMOTION (1,1) —— définit —— (1,1) REDUCTION
+- **🛒 EcoTech Shop** : Une marketplace technologique complète avec gestion de stocks temps réel.
+- **💳 EcoTech Bank** : Infrastructure bancaire propriétaire et passerelle de paiement API.
+- **🎧 EcoTech Support** : Service client (CRM) et monitoring administratif.
 
-COMMANDE (1,1) —— livrée par —— (0,1) LIVRAISON
+---
 
-CLIENT(id_client, nom, prenom, annee_naissance, email, password, status)
+## 🏗️ Architecture des Données (`ecotech_db`)
 
-PRODUIT(id_produit, nom, prix, details, date_ajout, heure_ajout)
+La base de données est segmentée en pôles métier pour maximiser la scalabilité.
 
-COMMANDE(id_commande, date_commande, id_client, id_periode)
+### 1. Pôle E-Commerce & Logistique
 
-LIGNE_COMMANDE(id_commande, id_produit, quantite, prix_unitaire)
+Gère le catalogue, le panier et la synchronisation granulaire des stocks.
 
-PERIODE(id_periode, saison, date_debut, date_fin)
+- **Catalogue** : `PRODUIT`, `ECOTECHPERIPHS`, `SONS`, `TELEPHONE`, `TELEVISIONS`.
+- **Stocks** : Tables dédiées par catégorie (`ECOTECHSTOCK_*`).
+- **Ventes** : `ECOTECHPARNIER` et `ECOTECH_COMMANDES`.
+- **Marketing** : `PROMOS`, `ECOTECH_FEEDBACKS`, `ECOTECH_NOTIFICATIONS`.
 
-PROMOTION(id_promo, type_promo, date_debut, date_fin, id_periode)
+### 2. Pôle Fintech : EcoTech Bank
 
-REDUCTION(id_reduction, taux_reduction, id_promo)
+Infrastructure monétaire permettant des transactions sécurisées internes et externes.
 
-LIVRAISON(id_livraison, date_livraison, id_commande)
+- **Core Banking** : `ECOTECHBANK` (Comptes), `BANKTRANSACTIONS` (Historique).
+- **Paiement Tiers** : `MERCHANTS` et `API_ORDERS` (Passerelle API).
 
-**structure**
+### 3. Pôle Administration & Support
 
-**CLIENT**
+- **CRM** : `ECOTECH_CUSTOMER_MESSAGES`, `ECOTECH_SALES_MESSAGES`.
+- **Staff** : `ECOTECH_EMPLOYES`, `ECOTECH_ADMINS`.
+- **Logs** : `API_MONITOR_LOGS` (Surveillance des flux).
 
-id_client (PK)
+---
 
-nom
+## 📊 Modélisation & Optimisation
 
-prenom
+### Modèle Conceptuel (MCD)
 
-annee_naissance
+- **Utilisateur ↔ Banque** : Chaque utilisateur possède un compte bancaire unique ($1,1$).
+- **Utilisateur ↔ Panier** : Un utilisateur détient un panier actif ($0,1$).
+- **Banque ↔ Transactions** : Historisation automatique ($0,N$).
+- **Admin ↔ Stock** : Gestion centralisée.
 
-email
+### ⚡ Vues SQL (Performance)
 
-password
+Pour simplifier l'affichage Front-End, nous utilisons des vues consolidées qui évitent les jointures lourdes :
+`VUE_STOCK_PC`, `VUE_STOCK_TV`, `VUE_STOCK_TEL`, `VUE_STOCK_SON`.
 
-status
+---
 
-**PRODUIT**
+## 🔐 Sécurité & Intégrité
 
-id_produit (PK)
+- **Authentification** : Rôles hiérarchisés (Admin, Employé, Client).
+- **Financier** : Système de double entrée pour les transactions.
+- **API Monitoring** : Surveillance active des appels externes pour prévenir les abus.
 
-nom_produit
+---
 
-prix_produit
+## 🛠️ Stack Technique
 
-details_produit
+- **Backend** : PHP 8.3 / MySQL 9.1
+- **Frontend** : HTML5, CSS3 (Custom DA), JavaScript ES6
+- **Architecture** : API REST Interne & JWT
 
-date_ajout
+---
 
-heure_ajout
+## 👥 Contributeurs
 
-**COMMANDE**
+- **Votre Nom / Équipe** — _Développement Full-Stack & Architecture DB_
 
-id_commande (PK)
+---
 
-date_commande
+> [!IMPORTANT]
+> **Note sur la structure :** 31 tables peuvent paraître impressionnantes, mais elles représentent la séparation nette des responsabilités. Chaque service possède son propre espace de données, rendant la maintenance bien plus simple qu'une base monolithique.
 
-periode_commande
-
-**PERIODE**
-
-id_periode (PK)
-
-saison
-(hiver, printemps, été, automne)
-
-date_debut
-
-date_fin
-
-**PROMOTION**
-
-id_promo (PK)
-
-type_promo
-
-date_debut
-
-date_fin
-
-REDUCTION
-
-id_reduction (PK)
-
-taux_reduction
-
-**LIVRAISON**
-
-id_livraison (PK)
-
-date_livraison
+<div align="center">
+  <sub>&copy; 2026 Ecotech Technologie - Tous droits réservés.</sub>
+</div>

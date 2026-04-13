@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="ecotech_monpanier.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <title>Mon Panier Ecotech</title>
+  </head>
+  <body>
+    <!-- <a href="./ecotechshop_pictures/photo_background_ordinateur.jpg"></a> -->
+    <div id="panierContent">
+      <header>
+        <div class="logo">
+          <img
+            src="./ecotechshop_pictures/logo-ecotech.png"
+            alt="Logo Ecotech"
+          />
+        </div>
+        <div class="menu-user-friendly">
+          <h1>
+            <i class="ph ph-shopping-cart-simple"></i>
+            <strong>Mon Panier</strong>
+          </h1>
+          <button
+            onclick="window.location.href = 'http://localhost/ecotechnologie/'"
+          >
+            <i class="fa-solid fa-arrow-left"></i> Continuer mes achats
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <div id="cartItemsContainer"></div>
+
+        <div class="total-section">
+          <div class="summary">
+            <p>Total articles: <span id="totalArticles">0</span></p>
+            <p>Total à payer: <span id="totalPrix">0.00€</span></p>
+          </div>
+          <button id="checkoutBtn">
+            <img src="./ecotechshop_pictures/logo-ecotechBank.png" alt="" />
+          </button>
+          <div class="paiement-infos">
+            <p>
+              <i class="ph ph-info"></i>
+              EcotechBank est le seul mode de paiement actuellement disponible.
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div id="toast-container"></div>
+    <script src="ecotech_monpanier.js"></script>
+  </body>
+</html>

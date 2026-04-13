@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="details_style.css" />
+    <title>Ecotech products details</title>
+  </head>
+  <body>
+    <button
+      class="return-btn-add"
+      onclick="
+        window.location.href =
+          'http://localhost/ecotechnologie/ecotechshop/ecotechphone.html'
+      "
+    >
+      <i class="fa-solid fa-arrow-left"></i>retourner puis ajouter au Panier
+    </button>
+    <div id="productDetails">
+      <div class="product-image-container">
+        <img id="productImage" src="" alt="" />
+      </div>
+
+      <div class="product-info-container">
+        <h1 id="productName"></h1>
+        <p id="productDescription"></p>
+        <p class="price" id="productPrice"></p>
+        <p id="productCategory"></p>
+        <p id="productStatus"></p>
+      </div>
+    </div>
+    <script src="phone_details.js"></script>
+  </body>
+</html>

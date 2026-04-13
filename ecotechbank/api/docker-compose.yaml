@@ -1,0 +1,36 @@
+services:
+  # Base de données (MariaDB)
+  db-api:
+    image: mariadb:10.6
+    container_name: ecotech-db-api
+    restart: always
+    ports:
+      - "3306:3306" # Ouvre le port pour permettre à WAMP de se connecter
+    environment:
+      MARIADB_ROOT_PASSWORD: ezechiel
+      MARIADB_DATABASE: ecotech_db
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+
+  # PHP-FPM (Traitement PHP)
+  php-api:
+    build: ./php
+    container_name: ecotech-php-api
+    restart: always
+    volumes:
+      - ./www:/var/www/html
+    depends_on:
+      - db-api
+
+  # Serveur Web Nginx
+  nginx-api:
+    image: nginx:alpine
+    container_name: ecotech-nginx-api
+    restart: always
+    ports:
+      - "8081:80"
+    volumes:
+      - ./www:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php-api

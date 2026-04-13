@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <title>error page for maintenance</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        text-align: center;
+        padding: 0px;
+      }
+      .nav-error-page {
+        background-color: #2174e7 !important;
+        color: white;
+        padding: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: lighter;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      main {
+        margin-top: 200px;
+      }
+      i {
+        font-size: 150px;
+        color: #7b7b7b;
+        font-weight: lighter;
+        margin-bottom: 20px;
+      }
+      footer {
+        font-size: 14px;
+        color: #777;
+      }
+      footer {
+        display: flex;
+        margin-top: 150px;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: #f1f1f1;
+        border-top: 1px solid #eee;
+      }
+      button {
+        background-color: #2174e7;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+    </style>
+  </head>
+  <nav class="nav-error-page">
+    <h1>Ecotech</h1>
+    <!-- <h1>error page for maintenance</h1> -->
+  </nav>
+  <body>
+    <main>
+      <i class="fa-regular fa-face-frown"></i>
+      <p>
+        Oups ! Cette page est actuellement en cours de développement. Nous nous
+        excusons pour ce désagrément. Notre équipe travaille activement afin de
+        la rendre disponible dans les plus brefs délais. En attendant, vous
+        pouvez retourner à l’accueil et continuer à découvrir les autres pages
+        du site déjà disponibles. Merci pour votre compréhension.
+      </p>
+      <button onclick="window.location.href = '../index.html'">
+        Retour à l'accueil
+      </button>
+    </main>
+    <footer>
+      <p>&copy; 2026 ByEcotech - Dev Team. Tous droits réservés.</p>
+    </footer>
+  </body>
+</html>

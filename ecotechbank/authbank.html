@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Connexion - EcotechBank</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+  </head>
+  <!doctype html>
+  <html lang="fr">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Connexion - EcotechBank</title>
+      <link rel="stylesheet" href="style.cs" />
+    </head>
+
+    <body>
+      <div class="auth-container">
+        <div class="bank-logo">
+          <img
+            src="../ecotechshop/ecotechshop_pictures/logo-ecotechBank.png"
+            alt="ecotechbank logo"
+          />
+          <p>La banque au service de l'écologie</p>
+        </div>
+        <div id="loginForm">
+          <div class="div-email">
+            <label for="email">Email:</label>
+            <i class="ph ph-envelope-simple"></i>
+            <input
+              type="email"
+              id="email"
+              placeholder="Email EcotechShop"
+              required
+            />
+          </div>
+          <div class="div-password">
+            <label for="password">Mot de passe :</label>
+            <i class="ph ph-lock"></i>
+            <input
+              type="password"
+              id="password"
+              placeholder="Mot de passe"
+              required
+            />
+          </div>
+
+          <button onclick="loginWithEcoTech()" class="btn-bank">
+            Se connecter avec EcotechShop
+          </button>
+        </div>
+
+        <div class="info-footer">
+          <p>
+            Pas encore client ?
+            <a href="register_ecotech.html">Créez un compte sur le Shop</a> pour
+            obtenir votre crédit de bienvenue.
+          </p>
+
+          <div class="div-bank-message">
+            <i class="ph ph-lock-key"></i>
+            <p>Transactions sécurisées</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="notification-container"></div>
+
+      <script src="authbank.js"></script>
+    </body>
+  </html>
+</html>

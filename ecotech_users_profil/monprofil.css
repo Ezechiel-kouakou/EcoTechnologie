@@ -1,0 +1,337 @@
+ /* :root {
+        --primary: #001554;
+        --accent:#001554;
+        --success: #27ae60;
+        --bg-light: #f4f7f6;
+        --text-dark: #333;
+      } */
+
+      body {
+        background-color:#ffffff;
+        margin: 0;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        color: #001554;
+        width: 100%;
+         /* min-height: 100vh; */
+      }
+
+      .dashboard-container {
+        max-width: 1000px;
+        margin: 2px auto;
+        padding: 0 0px;
+      }
+
+      .dashboard-header {
+        background: white;
+        width: 100%;
+        padding: 20px 100px 10px 20px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin-bottom: 25px;
+      }
+      .mon-nom{
+        display: flex;
+        flex-direction:row;
+        gap: 8px;
+        margin:10px;
+      }
+
+      .mon-email{
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        margin:10px;
+      }
+.myName{
+    font-weight: bold;
+     color: #001554;
+    font-size: 1.2rem;
+    border-bottom:1px solid #001554;
+}
+.myEmail{
+    color: #001554;
+    font-size: 0.9rem;
+    border-bottom:1px solid #001554;
+    font-weight: bold;
+}
+      .user-brief {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .avatar {
+        width: 50px;
+        height: 50px;
+        background: transparent !important;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1.9rem;
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .user-titles h1 {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+      .user-titles p {
+        margin: 0;
+        color: #777;
+        font-size: 0.9rem;
+      }
+
+      .btn-logout {
+        text-decoration: none;
+        color: #001554;
+        font-weight: bold;
+        font-size: 0.9rem;
+        padding: 8px 15px;
+        border: 1px solid #001554;
+        border-radius: 6px;
+        transition: 0.3s;
+      }
+      .btn-logout:hover {
+        background: #001554;
+        color: white;
+      }
+
+      .dashboard-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr; 
+        gap: 25px;
+        border:0px solid #828282;
+        padding: 0px 10px;
+        border-radius: 2px;
+        margin-left: 95px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      /* .btn-pdf{
+        background:#001554;;
+        border: none;
+        color:white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.75rem;
+        transition: 0.3s;
+      }
+      .btn-pdf:hover {
+        background: #001554;
+        color: white;
+      } */
+.tx-amount{
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+.tx-amount button{
+    background: #eee;
+    border: 1px solid #001554;
+    padding: 4px 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: 0.3s;
+}
+.tx-amount button:hover {
+    background: #001554;
+    color: white;
+}
+      @media (max-width: 768px) {
+        .dashboard-content {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      h2 {
+        font-size: 1.1rem;
+        color: #001554;
+        margin-bottom: 15px;
+      }
+
+    
+      .transaction-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .transaction-card {
+        background: white;
+        padding: 15px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03); */
+        border-left: 2px solid #001554;
+        transition: transform 0.2s;
+      }
+
+      .transaction-card:hover {
+        transform: translateX(5px);
+      }
+
+      .tx-logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        background: #f9f9f9;
+        padding: 5px;
+        border-radius: 8px;
+      }
+
+      .tx-details {
+        flex: 1;
+      }
+      .tx-name {
+        display: block;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+      .tx-date {
+        font-size: 0.8rem;
+        color: #888;
+      }
+
+      .tx-amount {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+      }
+      .price {
+        font-weight: bold;
+        color: #001554;
+      }
+
+      .btn-pdf {
+        background: #eee;
+        border: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.75rem;
+        transition: 0.3s;
+      }
+      .btn-pdf:hover {
+        background: #001554;
+        color: white;
+      }
+
+      .status-verified {
+        font-size: 0.6rem;
+        background: #e8f5e9;
+        color: #2e7d32;
+        padding: 3px 8px;
+        border-radius: 20px;
+        font-weight: bold;
+      }
+    @media screen and (max-width:380px){
+        .dashboard-header{
+            flex-direction: column;
+            gap: 15px;
+        }
+        .user-brief{
+            flex-direction: column;
+            gap: 10px;
+        }
+        .avatar{
+            width: 70px;
+            height: 70px;
+        }
+    .tx-amount button{
+    background:#001554;
+    border: 0px solid #001554;
+    padding: 4px 8px;
+    color:white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.6rem;
+    transition: 0.3s;
+}
+.tx-details span{
+    font-size: 0.6rem;
+}
+    }
+
+    @media screen and (max-width: 768px) {
+    /* On empêche le header de sortir de l'écran */
+    .dashboard-header {
+        flex-direction: column !important;
+        align-items: flex-start !important; /* On garde l'alignement à gauche pour tes infos */
+        padding: 15px !important;
+        height: auto !important;
+    }
+
+    /* On s'assure que le bloc infos ne pousse pas les murs */
+    .user-brief {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    /* Tes blocs personnels : on autorise le retour à la ligne */
+    .mon-nom, .mon-email {
+        flex-wrap: wrap !important; 
+        margin: 5px 0 !important;
+    }
+
+    /* Important : l'email ne doit pas être plus large que le téléphone */
+    .myEmail {
+        word-break: break-all !important; 
+        display: inline-block !important;
+        max-width: 100% !important;
+    }
+
+    /* On repositionne ton bouton logout pour qu'il ne soit pas écrasé */
+    .btn-logout {
+        margin-top: 15px !important;
+        align-self: flex-start !important;
+        display: inline-block !important;
+    }
+
+    /* Pour les transactions : on réduit un peu l'écart */
+    .transaction-card {
+        padding: 10px !important;
+        gap: 8px !important;
+    }
+}
+
+/* Correction spécifique pour les très petits écrans (iPhone SE, etc.) */
+@media screen and (max-width: 380px) {
+    .avatar {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1.2rem !important;
+    }
+    
+    .myName {
+        font-size: 1rem !important;
+    }
+
+    .tx-amount button {
+        font-size: 0.65rem !important;
+        padding: 4px 6px !important;
+    }
+}
+    

@@ -1,0 +1,53 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(../ecotechbank/ecotechbankpictures/background_photo.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+}
+
+#productDetails {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; 
+    max-width: 1000px; 
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.product-image-container {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#productImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-info-container {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+h1 { margin-top: 0; color: #333; font-size: 1.8rem; }
+
+.price {
+    font-size: 2rem;
+    font-weight: lighter;
+    color: #014a93;
+    margin: 20px 0;
+}
+
+#productStatus {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 0;
+}

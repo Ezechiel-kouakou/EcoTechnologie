@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index_style.css" />
+    <link rel="stylesheet" href="lows_style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+
+    <title>Bienvenue ecotech</title>
+  </head>
+  <body>
+    <header>
+      <nav id="primary-nav">
+        <div class="logo">
+          <img
+            src="./ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+            alt="Logo Ecotech"
+           onclick="window.location.href='/ecotechnologie/ecotech-erp/'"/>
+        </div>
+
+        <div class="ecotechMenu">
+          <div class="search-bar" id="searchContainer">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Rechercher un produit..."
+            />
+
+            <button type="button" id="searchToggle">
+              <i class="ph ph-magnifying-glass"></i>
+            </button>
+          </div>
+
+          <div class="notification-container">
+            <button type="button" id="notifBtn" class="notif-btn">
+              <i class="ph ph-bell"></i>
+              <span id="notif-count" class="notif-badge" style="display: none"
+                >0</span
+              >
+            </button>
+            <div id="notifDropdown" class="notif-dropdown">
+              <div class="notif-header">
+                <span>Notifications</span>
+                <button id="markAllRead">Tout lire</button>
+              </div>
+              <div id="notifList" class="notif-list">
+                <p class="empty-msg">Aucune notification</p>
+              </div>
+            </div>
+          </div>
+          <!-- <a href="./ecotech_api/JWTManager.php"></a> -->
+          <button
+            class="cart-btn"
+            onclick="
+              window.location.href =
+                '../ecotechnologie/ecotechshop/ecotech_monpanier.html'
+            "
+          >
+            <i class="ph ph-shopping-cart-simple"></i>
+            <span id="cart-count" class="cart-badge">0</span>
+          </button>
+
+          <div id="authButtons"></div>
+        </div>
+      </nav>
+
+      <div class="menu-overlay" id="menuOverlay"></div>
+
+      <nav id="secondary-nav">
+        <div class="topnav">
+          <button class="burger-menu" id="burgerBtn">
+            <i class="ph ph-text-indent"></i>
+          </button>
+
+          <ul class="menu-range" id="navMenu">
+            <li class="mobile-only close-menu" id="closeMenuBtn">
+              <i class="fa-solid fa-xmark"></i> Fermer
+            </li>
+            <li>
+              <a href="#">Accueil</a>
+            </li>
+            <li><a href="#about">À propos</a></li>
+            <li class="dropdown">
+              <button class="dropbtn">
+                Catalogue <i class="ph ph-caret-circle-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="../ecotechnologie/ecotechshop/ecotechphone.html"
+                  ><i class="ph ph-device-mobile"></i> Smartphone</a
+                >
+                <a href="../ecotechnologie/ecotechshop/ecotechsons.html"
+                  ><i class="ph ph-headphones"></i> Sons</a
+                >
+                <a href="../ecotechnologie/ecotechshop/ecotechtelevisions.html"
+                  ><i class="ph ph-television-simple"></i> Televisions</a
+                >
+                <a href="../ecotechnologie/ecotechshop/ecotechperiphs.html"
+                  ><i class="ph ph-keyboard"></i> Péripheriques</a
+                >
+                <a href="../ecotechnologie/ecotechshop/ecotechpc.html"
+                  ><i class="ph ph-laptop"></i> Ordinateur</a
+                >
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" onclick="openContactView()"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div id="openContactView" class="openContactView">
+          <div class="panelHeader">
+            <h2 class="panelTitle">Contact</h2>
+            <button class="back-btn-contact" onclick="closeContactView()">
+              <i class="ph ph-arrow-left"></i>
+              <span class="close-btn-contact">Retour</span>
+            </button>
+          </div>
+
+          <div class="user-questions">
+            <p>
+              N'hésitez pas à contacter le service compétent en fonction de vos
+              besoins.
+            </p>
+            <div class="user-question-btn">
+              <a href="#"><i class="ph ph-envelope-simple"></i> Nous écrire</a>
+              <i class="ph ph-caret-down"></i>
+            </div>
+            <div class="user-quest-content">
+              <div class="bannieres">
+                <div class="service-btn-defined">
+                  <i class="ph ph-headset"></i>
+                  <button onclick="afficherFormulaire('customer')">
+                    Une question sur un Produit (Service Client)
+                  </button>
+                </div>
+                <div class="service-btn-defined">
+                  <i class="ph ph-gear-fine"></i>
+                  <button onclick="afficherFormulaire('info')">
+                    Un problème de Compte (Service Info)
+                  </button>
+                </div>
+              </div>
+
+              <div id="contactArea">
+                <h3 id="serviceTitle"></h3>
+                <form id="contactForm">
+                  <input type="hidden" id="choixService" />
+                  <div class="contact-serv-customer">
+                    <i class="ph ph-user"></i>
+                    <input
+                      type="text"
+                      id="nom"
+                      placeholder="Nom"
+                      required
+                    /><br />
+                  </div>
+                  <div class="contact-serv-customer">
+                    <i class="ph ph-user"></i>
+                    <input
+                      type="text"
+                      id="prenom"
+                      placeholder="Prénom"
+                      required
+                    /><br />
+                  </div>
+                  <div class="customer-qst">
+                    <i class="ph ph-question"></i>
+                    <select id="type_demande">
+                      <option value="Information">Demande d'information</option>
+                      <option value="Urgent">Problème urgent</option>
+                      <option value="Autre">Autre</option></select
+                    ><br />
+                  </div>
+                  <div class="contact-serv-customer">
+                    <textarea
+                      id="message"
+                      placeholder="Votre message ici..."
+                      required
+                    ></textarea
+                    ><br />
+                  </div>
+                  <button type="submit" class="btn-send-qst">
+                    Envoyer ma demande
+                  </button>
+                </form>
+
+                <div id="chatDisplay"></div>
+              </div>
+            </div>
+            <div class="qst">
+              <button type="button" class="collapsible">
+                Quels sont les délais et frais de livraison ?
+              </button>
+              <div class="content">
+                <p>
+                  Nos délais de livraison standard sont de 3 à 5 jours ouvrés.
+                  La livraison est offerte dès 50 € d'achat. En dessous de ce
+                  montant, les frais de livraison sont de 4,99 €. Pour les
+                  commandes urgentes, nous proposons une option de livraison
+                  express en 24 à 48 heures pour un coût supplémentaire de 9,99
+                  €.
+                </p>
+              </div>
+              <button type="button" class="collapsible">
+                Comment retourner un article ?
+              </button>
+              <div class="content">
+                <p>
+                  Vous disposez de 14 jours pour changer d'avis. Contactez notre
+                  support pour obtenir un bon de retour pré-rempli. Emballez
+                  l'article dans son emballage d'origine, joignez le bon de
+                  retour et déposez-le au point relais le plus proche. Une fois
+                  que nous aurons reçu l'article, nous procéderons à un
+                  remboursement ou à un échange selon votre préférence.
+                </p>
+              </div>
+              <button type="button" class="collapsible">
+                Quelle est la durée de la garantie ?
+              </button>
+              <div class="content">
+                <p>
+                  Tous nos produits sont garantis 2 ans à compter de la date
+                  d'achat. Cette garantie couvre les défauts de fabrication et
+                  les pannes liées à l'utilisation normale du produit. Elle ne
+                  couvre pas les dommages causés par un usage incorrect ou des
+                  interventions non autorisées. Pour toute réclamation liée à la
+                  garantie, veuillez contacter notre service client avec votre
+                  facture d'achat.
+                </p>
+              </div>
+              <button type="button" class="collapsible">
+                Quels modes de paiement acceptez-vous ?
+              </button>
+              <div class="content">
+                <p>
+                  Pour garantir la rapidité et la sécurité de vos transactions,
+                  les achats s'effectuent prioritairement via
+                  <strong>EcotechBank</strong> . Ce mode de paiement exclusif
+                  facilite la validation immédiate de votre commande.
+                  Prochainement, vous aurez également la possibilité d'utiliser
+                  PayPal et vos cartes bancaires habituelles.
+                </p>
+              </div>
+              <button type="button" class="collapsible">
+                Comment suivre l'état de ma commande ?
+              </button>
+              <div class="content">
+                <p>
+                  Un lien de suivi vous est envoyé par email dès l'expédition de
+                  votre colis depuis nos entrepôts. En cliquant sur ce lien,
+                  vous pourrez suivre en temps réel l'acheminement de votre
+                  commande jusqu'à sa livraison. Vous y trouverez des
+                  informations détaillées sur les différentes étapes du
+                  transport, ainsi que la date de livraison estimée. Si vous
+                  avez créé un compte client lors de votre achat, vous pouvez
+                  également accéder à ces informations depuis votre espace
+                  personnel sur notre site.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- section reserver a la hero  -->
+      <section class="hero">
+        <div class="hero-container">
+          <div class="hero-text">
+
+            <h1>La technologie durable de demain</h1>
+              <div id="google_translate_element" style="display: none"></div>
+               <p>
+              Découvrez des appareils innovants, performants et respectueux de
+              l’environnement. Passez à une technologie plus responsable.
+            </p>
+            </div>
+          <div class="hero-image">
+            <img
+              src="./ecotechshop/ecotechshop_pictures/image-ecotechnologie.png"
+              alt="Produit Ecotech"
+            />
+          </div>
+            <div class="hero-buttons">
+              <a href="#catalogues-ecotech" class="btn-primary">
+                Explorer le catalogue
+              </a>
+
+              <a href="#promoSlider" class="btn-secondary">
+                Offres de la semaine
+              </a>
+            </div>
+          </div>
+
+          
+        </div>
+      </section>
+
+      <h2 class="catalogues-products" id="catalogues-ecotech">
+        Nos Catalogues
+      </h2>
+      <div class="categories-various">
+        <div
+          class="category-item-telephones"
+          onclick="window.location.href = 'ecotechshop/ecotechphone.html'"
+        >
+          <h3>Téléphones</h3>
+          <button>
+            <p><i class="ph ph-plus-circle"></i> d'articles</p>
+            <p class="direct-to-catalogues">
+              <i class="ph ph-arrow-right"></i>
+            </p>
+          </button>
+        </div>
+        <div
+          class="category-item-pc"
+          onclick="window.location.href = 'ecotechshop/ecotechpc.html'"
+        >
+          <!-- <img src="./image_pc.jpg" alt="" /> -->
+          <h3>Ordinateurs</h3>
+          <button>
+            <p><i class="ph ph-plus-circle"></i> d'articles</p>
+            <p class="direct-to-catalogues">
+              <i class="ph ph-arrow-right"></i>
+            </p>
+          </button>
+        </div>
+        <!-- les pages d'erreur son mises actuellement juste pour la prod le temps  terminer le site en local et redeployer -->
+        <div
+          class="category-item-sons"
+          onclick="window.location.href = 'ecotechshop/ecotechsons.html'"
+        >
+          <!-- <img src="./image_pc.jpg" alt="" /> -->
+          <h3>Sons</h3>
+          <button>
+            <p><i class="ph ph-plus-circle"></i> d'articles</p>
+            <p class="direct-to-catalogues">
+              <i class="ph ph-arrow-right"></i>
+            </p>
+          </button>
+        </div>
+        <div
+          class="category-item-tv"
+          onclick="window.location.href = 'ecotechshop/ecotechtelevisions.html'"
+        >
+          <!-- <img src="./image_televisions.jpg" alt="" /> -->
+          <h3>Télévisions</h3>
+          <button>
+            <p><i class="ph ph-plus-circle"></i> d'articles</p>
+            <p class="direct-to-catalogues">
+              <i class="ph ph-arrow-right"></i>
+            </p>
+          </button>
+        </div>
+        <div
+          class="category-item-periphs"
+          onclick="window.location.href = 'ecotechshop/ecotechperiphs.html'"
+        >
+          <!-- <img src="./image_pc.jpg" alt="" /> -->
+          <h3>Périphériques</h3>
+          <button>
+            <p><i class="ph ph-plus-circle"></i> d'articles</p>
+            <p class="direct-to-catalogues">
+              <i class="ph ph-arrow-right"></i>
+            </p>
+          </button>
+        </div>
+      </div>
+
+      <!-- partie pour les promos :  -->
+      <section class="promo-slider-section">
+        <div class="promo-header">
+          <h2><i class="ph ph-fire"></i>Offres de la semaine</h2>
+          <p>Les meilleures réductions sélectionnées pour vous</p>
+        </div>
+
+        <div class="promo-container" id="promoSlider">
+          <div class="promo-card skeleton-card">
+            <div class="skeleton skeleton-img"></div>
+            <div class="skeleton skeleton-title"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text" style="width: 50%"></div>
+          </div>
+          <div class="promo-card skeleton-card">
+            <div class="skeleton skeleton-img"></div>
+            <div class="skeleton skeleton-title"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text" style="width: 50%"></div>
+          </div>
+          <div class="promo-card skeleton-card">
+            <div class="skeleton skeleton-img"></div>
+            <div class="skeleton skeleton-title"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text" style="width: 50%"></div>
+          </div>
+          <div class="promo-card skeleton-card">
+            <div class="skeleton skeleton-img"></div>
+            <div class="skeleton skeleton-title"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text" style="width: 50%"></div>
+          </div>
+          <div class="promo-card skeleton-card">
+            <div class="skeleton skeleton-img"></div>
+            <div class="skeleton skeleton-title"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text" style="width: 50%"></div>
+          </div>
+        </div>
+      </section>
+      <!-- partie reserver a à propos de nous -->
+      <section class="advantages-section" id="about">
+        <h2>Pourquoi choisir Ecotech ?</h2>
+        <p class="advantages-subtitle">
+          Engagez-vous vers une technologie plus durable avec nos garanties.
+        </p>
+
+        <div class="advantages-container">
+          <div class="adv-card">
+            <i class="ph ph-leaf"></i>
+            <h3>Produits Écoresponsables</h3>
+            <p>
+              Nos appareils sont sélectionnés pour leur faible impact
+              environnemental et leur durabilité.
+            </p>
+          </div>
+
+          <div class="adv-card">
+            <i class="ph ph-tag"></i>
+            <h3>Prix Compétitifs</h3>
+            <p>
+              Des tarifs accessibles sans compromis sur la qualité des produits.
+            </p>
+          </div>
+
+          <div class="adv-card">
+            <i class="ph ph-headset"></i>
+            <h3>Support Réactif</h3>
+            <p>
+              Notre équipe vous accompagne rapidement pour toute question ou
+              problème.
+            </p>
+          </div>
+
+          <div class="adv-card">
+            <i class="ph ph-truck"></i>
+            <h3>Livraison Rapide</h3>
+            <p>
+              Expédition sécurisée et réception rapide directement chez vous.
+            </p>
+          </div>
+        </div>
+
+      </section>
+<section class="reviews-section">
+    <h2>Avis de nos clients</h2>
+    <div id="testimonials-container" class="testimonials-grid">
+        <p>Chargement des avis...</p>
+    </div>
+</section>
+    </main>
+
+    <!--partie reserver au footer bas de page  -->
+
+    <footer class="footer-contact-base">
+      <div class="properties">
+        <img
+          src="./ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+          alt="logo ecotech"
+        />
+        <p>&copy; 2026 ByEcotech - Dev Team. Tous droits réservés.</p>
+      </div>
+      <div class="confidentials-policies">
+        <a href="javascript:void(0)" onclick="openUsingRules()"
+          >Conditions d'utilisation
+        </a>
+        <!-- Ici conditions d'utilisation -->
+        <div id="usingRulesModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeUsingRules()">&times;</span>
+
+            <div class="modal-header">
+              <img
+                src="./ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+                alt="logo ecotech"
+              />
+              <h2>Conditions d'Utilisation</h2>
+            </div>
+
+            <div class="modal-body">
+              <section>
+                <h3>
+                  <i class="ph ph-check-circle"></i> 1. Acceptation des
+                  conditions
+                </h3>
+                <p>
+                  Les présentes conditions régissent l'accès et l'utilisation du
+                  site <strong>Ecotech</strong>. En naviguant sur ce site, vous
+                  acceptez sans réserve de respecter ces règles d'usage.
+                </p>
+              </section>
+
+              <section>
+                <h3>
+                  <i class="ph ph-prohibit"></i> 2. Utilisations interdites
+                </h3>
+                <p>
+                  Vous vous engagez à ne pas utiliser le site à des fins
+                  illégales. Sont strictement interdits :
+                </p>
+                <ul>
+                  <li>La tentative d'intrusion dans nos systèmes (hacking).</li>
+                  <li>
+                    L'extraction automatique de données (scraping) sans
+                    autorisation.
+                  </li>
+                  <li>
+                    La publication de contenus injurieux ou diffamatoires.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h3><i class="ph ph-warning"></i> 3. Suspension d'accès</h3>
+                <p>
+                  Nous nous réservons le droit de suspendre ou de résilier votre
+                  accès au site, sans préavis, en cas de violation manifeste de
+                  ces conditions d'utilisation.
+                </p>
+              </section>
+
+              <section>
+                <h3><i class="ph ph-pencil"></i> 4. Modifications</h3>
+                <p>
+                  Ecotech se réserve le droit de modifier ces conditions à tout
+                  moment. Il est conseillé de consulter cette page régulièrement
+                  avant toute commande.
+                </p>
+              </section>
+
+              <div class="modal-action">
+                <button class="btn-send-qst" onclick="closeUsingRules()">
+                  J'accepte les conditions
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Ici politique de conf -->
+        <a href="javascript:void(0)" onclick="openPrivacyPolicy()"
+          >Politique de confidentialité
+        </a>
+        <div id="privacyPolicyModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closePrivacyPolicy()">&times;</span>
+
+            <div class="modal-header">
+              <img
+                src="./ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+                alt="logo ecotech"
+              />
+              <h2>Politique de Confidentialité</h2>
+            </div>
+
+            <div class="modal-body">
+              <section>
+                <h3><i class="ph ph-database"></i> 1. Collecte des données</h3>
+                <p>
+                  Chez <strong>Ecotech</strong>, nous collectons uniquement les
+                  informations nécessaires au traitement de vos commandes :
+                  <span
+                    >nom, prénom, adresse e-mail et adresse de livraison.</span
+                  >
+                </p>
+              </section>
+
+              <section>
+                <h3>
+                  <i class="ph ph-gears"></i> 2. Utilisation de vos informations
+                </h3>
+                <p>Vos données servent exclusivement à :</p>
+                <ul>
+                  <li>Gérer vos commandes et la livraison.</li>
+                  <li>
+                    Vous envoyer des notifications de suivi en temps réel.
+                  </li>
+                  <li>
+                    Améliorer l'expérience utilisateur sur notre plateforme.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h3><i class="ph ph-lock"></i> 3. Protection et Sécurité</h3>
+                <p>
+                  Toutes vos données sont stockées sur des serveurs sécurisés et
+                  cryptées via le protocole <strong>SSL</strong>. Nous nous
+                  engageons contractuellement à ne jamais revendre vos
+                  informations à des tiers.
+                </p>
+              </section>
+
+              <section>
+                <h3><i class="ph ph -user-check"></i> 4. Vos droits</h3>
+                <p>
+                  Conformément au RGPD, vous disposez d'un droit d'accès, de
+                  rectification et de suppression de vos données personnelles
+                  sur simple demande.
+                </p>
+              </section>
+
+              <div class="modal-action">
+                <button class="btn-send-qst" onclick="closePrivacyPolicy()">
+                  J'ai compris
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Ici politique de cookies -->
+        <a href="javascript:void(0)" onclick="openCookiesPolicy()"
+          >Cookies et technologies similaires
+        </a>
+        <div id="cookiesPolicyModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeCookiesPolicy()">&times;</span>
+
+            <div class="modal-header">
+              <img
+                src="./ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+                alt="logo ecotech"
+              />
+              <h2>Politique des Cookies</h2>
+            </div>
+
+            <div class="modal-body">
+              <section>
+                <h3>
+                  <i class="ph ph-circle-question"></i> 1. Qu'est-ce qu'un
+                  cookie ?
+                </h3>
+                <p>
+                  Un cookie est un petit fichier texte déposé sur votre
+                  ordinateur ou mobile lors de votre visite sur
+                  <strong>Ecotech</strong>. Il nous permet de mémoriser vos
+                  préférences et d'optimiser votre navigation.
+                </p>
+              </section>
+
+              <section>
+                <h3>
+                  <i class="ph ph-list-check"></i> 2. Les cookies que nous
+                  utilisons
+                </h3>
+                <p>Nous utilisons deux types de cookies :</p>
+                <ul>
+                  <li>
+                    <strong>Cookies Essentiels :</strong> Nécessaires au
+                    fonctionnement du panier d'achat et à la connexion à votre
+                    compte.
+                  </li>
+                  <li>
+                    <strong>Cookies de Performance :</strong> Pour analyser
+                    l'audience et améliorer la rapidité de notre site.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h3>
+                  <i class="ph ph-user-gear"></i> 3. Gestion de vos préférences
+                </h3>
+                <p>
+                  Vous pouvez à tout moment configurer votre navigateur pour
+                  bloquer les cookies.
+                  <em
+                    >Note : le blocage des cookies essentiels peut empêcher la
+                    finalisation de vos commandes sur Ecotech.</em
+                  >
+                </p>
+              </section>
+
+              <section>
+                <h3>
+                  <i class="ph ph-calendar-day"></i> 4. Durée de conservation
+                </h3>
+                <p>
+                  Les cookies sont conservés pour une durée maximale de 13 mois,
+                  conformément aux recommandations de la CNIL.
+                </p>
+                <a
+                  href="https://www.cnil.fr/fr/cnil-direct/question/cookies-si-jai-refuse-ses-cookies-un-site-web-peut-il-me-redemander-de-les#:~:text=Oui%2C%20apr%C3%A8s%20un%20certain%20laps,une%20dur%C3%A9e%20de%206%20mois."
+                  >Les conseils de la CNIL</a
+                >
+              </section>
+              <div class="modal-action">
+                <button class="btn-send-qst" onclick="closeCookiesPolicy()">
+                  Accepter les cookies
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Ici mentions legales -->
+        <a href="javascript:void(0)" onclick="openLegalMentions()"
+          >Mentions légales
+        </a>
+        <div id="legalMentionsModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeLegalMentions()">&times;</span>
+
+            <div class="modal-header">
+              <img
+                src="./ecotechshop/ecotechshop_pictures/logo-ecotech.png"
+                alt="logo ecotech"
+              />
+              <h2>Mentions Légales</h2>
+            </div>
+
+            <div class="modal-body">
+              <section>
+                <h3><i class="ph ph-building"></i> 1. Éditeur du site</h3>
+                <p>
+                  Le site <strong>Ecotech</strong> est édité par la société
+                  Ecotech SARL, au capital de 10 000 €, immatriculée au RCS de
+                  Paris sous le numéro 123 456 789.
+                </p>
+                <p>Siège social : 12 rue de la Technologie, 75000 Paris.</p>
+              </section>
+
+              <section>
+                <h3>
+                  <i class="ph ph-user-circle"></i> 2. Responsable de la
+                  publication
+                </h3>
+                <p>
+                  Les directeurs de la publication sont
+                  <strong>KOUAKOU Ezechiel</strong> et
+                  <strong>Amadou Olaniran</strong>, en leur qualité de Gérants.
+                </p>
+              </section>
+
+              <section>
+                <h3><i class="ph ph-database"></i> 3. Hébergement</h3>
+                <p>
+                  Le site est hébergé par la société
+                  <strong>CloudServer SAS</strong>.
+                </p>
+                <p>Adresse : 50 Avenue du Cloud, 69000 Lyon.</p>
+              </section>
+
+              <section>
+                <h3>
+                  <i class="ph ph-copyright"></i> 4. Propriété intellectuelle
+                </h3>
+                <p>
+                  L'ensemble du contenu (textes, images, logos) est la propriété
+                  exclusive de <strong>Ecotech</strong>. Toute reproduction est
+                  interdite sans accord écrit préalable par les propriétaires du
+                  site que sont Firdaous et Ezechiel.
+                </p>
+              </section>
+
+              <div class="modal-action">
+                <button class="btn-send-qst" onclick="closeLegalMentions()">
+                  Fermer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-link">
+        <a href="https://www.facebook.com/ecotech" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/ecotech" target="_blank">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com/ecotech" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/ecotech" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </footer>
+  </body>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: "fr",
+          includedLanguages: "en,es,de,zh-CN", // Langues que tu veux proposer
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false,
+        },
+        "google_translate_element",
+      );
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="index.js"></script>
+  <script src="contact.js"></script>
+  <script src="lows.js"></script>
+  <script src="./ecotech_suggest_product.js"></script>
+  <script src="./ecotechshop/ecotech_logout.js"></script>
+  <script src="./ecotechshop/index.js"></script>
+  <script src="burgerMenu.js"></script>
+</html>
